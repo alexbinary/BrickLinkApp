@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		290F75EE22AD63E7007B74BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290F75ED22AD63E7007B74BD /* Assets.xcassets */; };
 		290F75F122AD63E7007B74BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290F75F022AD63E7007B74BD /* Preview Assets.xcassets */; };
 		290F75F422AD63E7007B74BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */; };
+		290F75FD22AD66CF007B74BD /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 290F75FC22AD66CF007B74BD /* CryptoSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		290F75F022AD63E7007B74BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		290F75F322AD63E7007B74BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		290F75F522AD63E7007B74BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BrickLinkApp2.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				290F75FD22AD66CF007B74BD /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +59,7 @@
 		290F75E622AD63E3007B74BD /* BrickLinkApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */,
 				290F75E722AD63E3007B74BD /* AppDelegate.swift */,
 				290F75E922AD63E3007B74BD /* SceneDelegate.swift */,
 				290F75EB22AD63E3007B74BD /* ContentView.swift */,
@@ -91,6 +95,9 @@
 			dependencies = (
 			);
 			name = BrickLinkApp2;
+			packageProductDependencies = (
+				290F75FC22AD66CF007B74BD /* CryptoSwift */,
+			);
 			productName = BrickLinkApp2;
 			productReference = 290F75E422AD63E3007B74BD /* BrickLinkApp2.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +126,9 @@
 				Base,
 			);
 			mainGroup = 290F75DB22AD63E3007B74BD;
+			packageReferences = (
+				290F75FB22AD66CF007B74BD /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+			);
 			productRefGroup = 290F75E522AD63E3007B74BD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -284,7 +294,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BrickLinkApp2/BrickLinkApp2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "BrickLinkApp2/Preview\\ Content";
 				DEVELOPMENT_TEAM = 2N6DR3R99K;
 				ENABLE_PREVIEWS = YES;
@@ -295,6 +307,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.bintz.BrickLinkApp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -304,7 +317,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BrickLinkApp2/BrickLinkApp2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "BrickLinkApp2/Preview\\ Content";
 				DEVELOPMENT_TEAM = 2N6DR3R99K;
 				ENABLE_PREVIEWS = YES;
@@ -315,6 +330,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.bintz.BrickLinkApp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -342,6 +358,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		290F75FB22AD66CF007B74BD /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		290F75FC22AD66CF007B74BD /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 290F75FB22AD66CF007B74BD /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 290F75DC22AD63E3007B74BD /* Project object */;
 }

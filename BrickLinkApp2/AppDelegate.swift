@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let client = BrickLinkAPIClient()
         
-        client.getOrders()
+        client.getMyOrdersReceived()
         
         return true
     }

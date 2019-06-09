@@ -14,6 +14,7 @@
 		290F75F122AD63E7007B74BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290F75F022AD63E7007B74BD /* Preview Assets.xcassets */; };
 		290F75F422AD63E7007B74BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */; };
 		290F75FD22AD66CF007B74BD /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 290F75FC22AD66CF007B74BD /* CryptoSwift */; };
+		290F760122AD6EAD007B74BD /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 290F760022AD6EAD007B74BD /* OAuthSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				290F760122AD6EAD007B74BD /* OAuthSwift in Frameworks */,
 				290F75FD22AD66CF007B74BD /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +99,7 @@
 			name = BrickLinkApp2;
 			packageProductDependencies = (
 				290F75FC22AD66CF007B74BD /* CryptoSwift */,
+				290F760022AD6EAD007B74BD /* OAuthSwift */,
 			);
 			productName = BrickLinkApp2;
 			productReference = 290F75E422AD63E3007B74BD /* BrickLinkApp2.app */;
@@ -128,6 +131,7 @@
 			mainGroup = 290F75DB22AD63E3007B74BD;
 			packageReferences = (
 				290F75FB22AD66CF007B74BD /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				290F75FF22AD6EAD007B74BD /* XCRemoteSwiftPackageReference "OAuthSwift" */,
 			);
 			productRefGroup = 290F75E522AD63E3007B74BD /* Products */;
 			projectDirPath = "";
@@ -368,6 +372,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		290F75FF22AD6EAD007B74BD /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -375,6 +387,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 290F75FB22AD66CF007B74BD /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
+		};
+		290F760022AD6EAD007B74BD /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 290F75FF22AD6EAD007B74BD /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -107,7 +107,7 @@ struct BrickLinkAPIClient {
         let version: OAuthVersion = .v1_0
         let signatureMethod: OAuthSignatureMethod = .HMAC_SHA1
         
-        let timestamp = Date().timeIntervalSince1970
+        let timestamp = Int(Date().timeIntervalSince1970)
         let nonce = UUID().uuidString
         
         let realm = ""

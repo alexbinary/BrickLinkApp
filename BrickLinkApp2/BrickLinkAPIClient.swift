@@ -15,7 +15,7 @@ struct BrickLinkAPIClient {
     
     /// The default OAuth credentials to use to authenticate requests (provided by BrickLink).
     ///
-    let brickLinkOAuthCredentials = OAuthCredentials(
+    let brickLinkOAuthCredentials = OAuthRequestCredentials(
     
         consumerKey: "5384025985CF43F391463885E5B033C6",
         consumerSecret: "1690FA35B37E49FBAF19542D5A02F9EA",
@@ -85,19 +85,7 @@ struct BrickLinkAPIClient {
         
         return request
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     func execute(_ request: URLRequest) {
         

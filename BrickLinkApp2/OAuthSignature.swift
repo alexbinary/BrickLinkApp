@@ -1,0 +1,47 @@
+
+import Foundation
+import CryptoSwift
+
+
+
+struct OAuthSignature {
+    
+    
+    init(for request: URLRequest, with oauthRequestParameters: OAuthRequestParameterSet, using credentials: OAuthRequestCredentials) {
+        
+        let oauthSignatureBaseString = OAuthSignatureBaseString(for: request, with: oauthRequestParameters)
+        
+        self.rawValue = OAuthSignature.buildOAuth1Signature(from: oauthSignatureBaseString.rawValue, using: credentials)
+    }
+    
+    
+    
+    static func buildOAuth1Signature(from signatureBaseString: String, using credentials: OAuthRequestCredentials) -> String {
+        
+        let key = [credentials.consumerSecret.rawValue, credentials.tokenSecret.rawValue] .map { $0.urlEncoded! } .joined(separator: "&")
+        
+        guard let digest = try? HMAC(key: key, variant: .sha1).authenticate(signatureBaseString.bytes) else {
+            
+            fatalError("HMAC encoding failed")
+        }
+        
+        guard let base64EncodedDigest = digest.toBase64() else {
+            
+            fatalError("base 64 encoding failed")
+        }
+        
+        return base64EncodedDigest
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public let rawValue: String
+}

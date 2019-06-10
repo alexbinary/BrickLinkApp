@@ -16,7 +16,11 @@
 		290F75F422AD63E7007B74BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */; };
 		290F75FD22AD66CF007B74BD /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 290F75FC22AD66CF007B74BD /* CryptoSwift */; };
 		29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */; };
-		29F405CF22AD9B6B00CCA0E1 /* OAuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F405CE22AD9B6B00CCA0E1 /* OAuthCredentials.swift */; };
+		29F2B56022AEA24C002FED69 /* OAuthRequestParameterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2B55F22AEA24C002FED69 /* OAuthRequestParameterSet.swift */; };
+		29F2B56222AEA537002FED69 /* OAuthSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2B56122AEA537002FED69 /* OAuthSignature.swift */; };
+		29F2B56422AEA622002FED69 /* OAuthSignatureBaseString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2B56322AEA622002FED69 /* OAuthSignatureBaseString.swift */; };
+		29F2B56622AEA846002FED69 /* OAuthAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2B56522AEA846002FED69 /* OAuthAuthorization.swift */; };
+		29F405CF22AD9B6B00CCA0E1 /* OAuthRequestCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F405CE22AD9B6B00CCA0E1 /* OAuthRequestCredentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +35,11 @@
 		290F75F522AD63E7007B74BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BrickLinkApp2.entitlements; sourceTree = "<group>"; };
 		29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkAPIClient.swift; sourceTree = "<group>"; };
-		29F405CE22AD9B6B00CCA0E1 /* OAuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthCredentials.swift; sourceTree = "<group>"; };
+		29F2B55F22AEA24C002FED69 /* OAuthRequestParameterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthRequestParameterSet.swift; sourceTree = "<group>"; };
+		29F2B56122AEA537002FED69 /* OAuthSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthSignature.swift; sourceTree = "<group>"; };
+		29F2B56322AEA622002FED69 /* OAuthSignatureBaseString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthSignatureBaseString.swift; sourceTree = "<group>"; };
+		29F2B56522AEA846002FED69 /* OAuthAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAuthorization.swift; sourceTree = "<group>"; };
+		29F405CE22AD9B6B00CCA0E1 /* OAuthRequestCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthRequestCredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +82,12 @@
 				290F75F522AD63E7007B74BD /* Info.plist */,
 				290F75EF22AD63E7007B74BD /* Preview Content */,
 				29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */,
-				29F405CE22AD9B6B00CCA0E1 /* OAuthCredentials.swift */,
+				29F405CE22AD9B6B00CCA0E1 /* OAuthRequestCredentials.swift */,
 				2907A6E222AE858F00586868 /* OAuth1Authenticator.swift */,
+				29F2B55F22AEA24C002FED69 /* OAuthRequestParameterSet.swift */,
+				29F2B56122AEA537002FED69 /* OAuthSignature.swift */,
+				29F2B56322AEA622002FED69 /* OAuthSignatureBaseString.swift */,
+				29F2B56522AEA846002FED69 /* OAuthAuthorization.swift */,
 			);
 			path = BrickLinkApp2;
 			sourceTree = "<group>";
@@ -165,7 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29F405CF22AD9B6B00CCA0E1 /* OAuthCredentials.swift in Sources */,
+				29F405CF22AD9B6B00CCA0E1 /* OAuthRequestCredentials.swift in Sources */,
+				29F2B56022AEA24C002FED69 /* OAuthRequestParameterSet.swift in Sources */,
+				29F2B56222AEA537002FED69 /* OAuthSignature.swift in Sources */,
+				29F2B56622AEA846002FED69 /* OAuthAuthorization.swift in Sources */,
+				29F2B56422AEA622002FED69 /* OAuthSignatureBaseString.swift in Sources */,
 				290F75E822AD63E3007B74BD /* AppDelegate.swift in Sources */,
 				29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */,
 				2907A6E322AE858F00586868 /* OAuth1Authenticator.swift in Sources */,

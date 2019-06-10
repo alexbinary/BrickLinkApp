@@ -4,7 +4,7 @@ import Foundation
 
 /// A set of value that identify and authenticate the issuer of an OAuth 1 request.
 ///
-struct OAuthCredentials {
+struct OAuthRequestCredentials {
     
     
     /// A key that identifies a client app to the service provider.

@@ -8,13 +8,7 @@ struct ContentView : View {
     
     var body: some View {
         List(orders.identified(by: \.orderId)) { order in
-            VStack(alignment: .leading) {
-                Text("Id: \(order.orderId)")
-                Text("Date: \(order.dateOrdered)")
-                Text("Buyer: \(order.buyerName)")
-                Text("Status: \(order.status.rawValue)")
-                Text("Changed: \(order.dateStatusChanged)")
-            }
+            OrderRowView(order: order)
         }
     }
 }
@@ -26,3 +20,4 @@ struct ContentView_Previews : PreviewProvider {
     }
 }
 #endif
+

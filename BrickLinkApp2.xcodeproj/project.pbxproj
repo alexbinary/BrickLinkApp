@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2907A6E322AE858F00586868 /* OAuth1Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2907A6E222AE858F00586868 /* OAuth1Authenticator.swift */; };
+		290881A822B365C20084BA1B /* BrickLinkAPIClient+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290881A722B365C20084BA1B /* BrickLinkAPIClient+Auth.swift */; };
 		290F75E822AD63E3007B74BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F75E722AD63E3007B74BD /* AppDelegate.swift */; };
 		290F75EA22AD63E3007B74BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F75E922AD63E3007B74BD /* SceneDelegate.swift */; };
 		290F75EC22AD63E3007B74BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F75EB22AD63E3007B74BD /* ContentView.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		2907A6E222AE858F00586868 /* OAuth1Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth1Authenticator.swift; sourceTree = "<group>"; };
+		290881A722B365C20084BA1B /* BrickLinkAPIClient+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrickLinkAPIClient+Auth.swift"; sourceTree = "<group>"; };
 		290F75E422AD63E3007B74BD /* BrickLinkApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickLinkApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290F75E722AD63E3007B74BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		290F75E922AD63E3007B74BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */,
+				290881A722B365C20084BA1B /* BrickLinkAPIClient+Auth.swift */,
 				29F405CE22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift */,
 				2907A6E222AE858F00586868 /* OAuth1Authenticator.swift */,
 				29F2B55F22AEA24C002FED69 /* OAuthRequestParameterSet.swift */,
@@ -194,6 +197,7 @@
 				29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */,
 				2907A6E322AE858F00586868 /* OAuth1Authenticator.swift in Sources */,
 				290F75EA22AD63E3007B74BD /* SceneDelegate.swift in Sources */,
+				290881A822B365C20084BA1B /* BrickLinkAPIClient+Auth.swift in Sources */,
 				290F75EC22AD63E3007B74BD /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,11 +20,11 @@ struct BrickLinkAPIClient {
         
         let url = URL(string: "https://api.bricklink.com/api/store/v1/orders?direction=in")!
         
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
         
-        let authenticatedRequest = OAuth1Authenticator().authenticate(request, with: credentials)
+        request.authenticate(with: credentials)
         
-        URLSession(configuration: .default).dataTask (with: authenticatedRequest) { (data, response, error) in
+        URLSession(configuration: .default).dataTask (with: request) { (data, response, error) in
             
             let httpResponse = response as! HTTPURLResponse
             

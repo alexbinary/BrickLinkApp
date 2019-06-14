@@ -19,6 +19,7 @@
 		29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */; };
 		29EAF43822B406FA00CABFF6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF43722B406FA00CABFF6 /* Models.swift */; };
 		29EAF43B22B408DA00CABFF6 /* orders.json in Resources */ = {isa = PBXBuildFile; fileRef = 29EAF43A22B408DA00CABFF6 /* orders.json */; };
+		29EAF43E22B42C7400CABFF6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF43D22B42C7400CABFF6 /* LoadingView.swift */; };
 		29F405CF22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F405CE22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkAPIClient.swift; sourceTree = "<group>"; };
 		29EAF43722B406FA00CABFF6 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		29EAF43A22B408DA00CABFF6 /* orders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orders.json; sourceTree = "<group>"; };
+		29EAF43D22B42C7400CABFF6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		29F405CE22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkRequestCredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				290F75EB22AD63E3007B74BD /* ContentView.swift */,
+				29EAF43D22B42C7400CABFF6 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */,
 				290F75EA22AD63E3007B74BD /* SceneDelegate.swift in Sources */,
 				290881A822B365C20084BA1B /* BrickLinkAPIClient+Auth.swift in Sources */,
+				29EAF43E22B42C7400CABFF6 /* LoadingView.swift in Sources */,
 				290F75EC22AD63E3007B74BD /* ContentView.swift in Sources */,
 				29EAF43822B406FA00CABFF6 /* Models.swift in Sources */,
 			);

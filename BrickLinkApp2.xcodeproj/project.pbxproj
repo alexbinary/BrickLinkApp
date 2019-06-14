@@ -84,11 +84,11 @@
 		290F75E622AD63E3007B74BD /* BrickLinkApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				29EAF43C22B42C4400CABFF6 /* Views */,
 				290881A622B363A20084BA1B /* BrickLink */,
 				290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */,
 				290F75E722AD63E3007B74BD /* AppDelegate.swift */,
 				290F75E922AD63E3007B74BD /* SceneDelegate.swift */,
-				290F75EB22AD63E3007B74BD /* ContentView.swift */,
 				290F75ED22AD63E7007B74BD /* Assets.xcassets */,
 				290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */,
 				290F75F522AD63E7007B74BD /* Info.plist */,
@@ -105,6 +105,14 @@
 				290F75F022AD63E7007B74BD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		29EAF43C22B42C4400CABFF6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				290F75EB22AD63E3007B74BD /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

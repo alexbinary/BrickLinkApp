@@ -16,8 +16,6 @@ extension URLRequest {
         
         let authorizationHeader = buildAuthorizationHeader(using: credentials)
         
-        print(authorizationHeader)
-        
         addValue(authorizationHeader, forHTTPHeaderField: "Authorization")
     }
     
@@ -25,8 +23,6 @@ extension URLRequest {
     func buildAuthorizationHeader(using credentials: BrickLinkRequestCredentials) -> String {
         
         let oauthParameters = generateCompleteOAuthParameterSet(using: credentials)
-        
-        print(oauthParameters)
         
         let headerValue = "OAuth " + oauthParameters.map { $0 + "=" + $1.urlEncoded!.quoted } .joined(separator: ",")
         
@@ -74,11 +70,7 @@ extension URLRequest {
         
         let signatureBaseString = buildSignatureBaseString(with: oauthParameters)
         
-        print(signatureBaseString)
-        
         let key = buildSigningKey(from: credentials)
-        
-        print(key)
         
         let digest = try! HMAC(key: key, variant: .sha1).authenticate(signatureBaseString.bytes)
         
@@ -96,16 +88,12 @@ extension URLRequest {
             
             oauthParameters .merging(requestParameters, uniquingKeysWith: { (v1, v2) in v1 })
         
-        print(parametersForSignature)
-        
         let elements = [
             
             httpMethod!.uppercased(),
             normalize(self.url!),
             normalize(parametersForSignature),
         ]
-        
-        print(elements)
         
         let signatureBaseString = elements .map { $0.urlEncoded! } .joined(separator: "&")
         

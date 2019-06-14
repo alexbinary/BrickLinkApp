@@ -36,6 +36,8 @@ struct BrickLinkAPIClient {
         
         URLSession(configuration: .default).dataTask (with: request) { (data, response, error) in
             
+            print(String(data: data!, encoding: .utf8)!)
+            
             completionHandler(data!.decode())
             
         } .resume()

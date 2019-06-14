@@ -11,7 +11,7 @@ struct OrdersListView : View {
         VStack {
             SegmentedControl(selection: $selectedStatus) {
                 ForEach(0..<OrderStatus.allCases.count) { index in
-                    Text(OrderStatus.allCases[index].rawValue).tag(index)
+                    Text(OrderStatus.allCases[index].rawValue + "" + "(\(self.orders.filter { $0.status == OrderStatus.allCases[index] } .count))").tag(index)
                 }
             }
             List {

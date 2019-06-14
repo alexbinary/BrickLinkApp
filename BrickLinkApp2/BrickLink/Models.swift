@@ -42,4 +42,5 @@ enum OrderStatus: String, Decodable, CaseIterable {
     case completed = "COMPLETED"
     case shipped = "SHIPPED"
     case received = "RECEIVED"
+    case paid = "PAID"
 }

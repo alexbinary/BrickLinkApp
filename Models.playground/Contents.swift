@@ -4,7 +4,7 @@ import SwiftUI
 
 
 
-func getOrder() -> Order {
+func getOrders() -> [Order] {
     
     
     let url = Bundle.main.url(forResource: "orders", withExtension: "json")!
@@ -27,9 +27,7 @@ func getOrder() -> Order {
     
     let orders = response.data
     
-    let firstOrder = orders[2]
-    
-    return firstOrder
+    return orders
 }
 
 
@@ -74,6 +72,7 @@ enum OrderStatus: String, Decodable {
     case completed = "COMPLETED"
     case shipped = "SHIPPED"
     case received = "RECEIVED"
+    case paid = "PAID"
 }
 
 struct Shipping: Decodable {
@@ -86,8 +85,9 @@ struct Address: Decodable {
     let countryCode: String
 }
 
+let orders = getOrders()
 
-let order = getOrder()
+let order = orders.last
 
 
 

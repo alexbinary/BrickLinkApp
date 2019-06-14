@@ -37,7 +37,7 @@ struct OrderId: Decodable, CustomStringConvertible {
     var description: String { stringValue }
 }
 
-enum OrderStatus: String, Decodable {
+enum OrderStatus: String, Decodable, CaseIterable {
     
     case completed = "COMPLETED"
     case shipped = "SHIPPED"

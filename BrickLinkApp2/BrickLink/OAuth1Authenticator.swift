@@ -8,7 +8,7 @@ import Foundation
 struct OAuth1Authenticator {
     
     
-    public func authenticate(_ request: URLRequest, with credentials: OAuthRequestCredentials) -> URLRequest {
+    public func authenticate(_ request: URLRequest, with credentials: BrickLinkRequestCredentials) -> URLRequest {
         
         var authenticatedRequest = request
         
@@ -21,7 +21,7 @@ struct OAuth1Authenticator {
     
     
     
-    func buildAuthorizationHeader(for request: URLRequest, using credentials: OAuthRequestCredentials) -> String {
+    func buildAuthorizationHeader(for request: URLRequest, using credentials: BrickLinkRequestCredentials) -> String {
         
         let oauthRequestParameters = OAuthRequestParameterSet(with: credentials)
         

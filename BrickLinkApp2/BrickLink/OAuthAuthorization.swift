@@ -7,13 +7,13 @@ struct OAuthAuthorization {
     
     
     let request: URLRequest
-    let credentials: OAuthRequestCredentials
+    let credentials: BrickLinkRequestCredentials
     let realm: String
     let oauthVersion: OAuthVersion
     let signatureMethod: OAuthSignatureMethod
     
     
-    init(for request: URLRequest, using credentials: OAuthRequestCredentials, realm: String = "", oauthVersion: OAuthVersion = .v1_0, signatureMethod: OAuthSignatureMethod = .HMAC_SHA1) {
+    init(for request: URLRequest, using credentials: BrickLinkRequestCredentials, realm: String = "", oauthVersion: OAuthVersion = .v1_0, signatureMethod: OAuthSignatureMethod = .HMAC_SHA1) {
         
         self.request = request
         self.credentials = credentials

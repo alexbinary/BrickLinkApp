@@ -7,7 +7,7 @@ import CryptoSwift
 struct OAuthSignature {
     
     
-    init(for request: URLRequest, with oauthRequestParameters: OAuthRequestParameterSet, using credentials: OAuthRequestCredentials) {
+    init(for request: URLRequest, with oauthRequestParameters: OAuthRequestParameterSet, using credentials: BrickLinkRequestCredentials) {
         
         let oauthSignatureBaseString = OAuthSignatureBaseString(for: request, with: oauthRequestParameters)
         
@@ -16,9 +16,9 @@ struct OAuthSignature {
     
     
     
-    static func buildOAuth1Signature(from signatureBaseString: String, using credentials: OAuthRequestCredentials) -> String {
+    static func buildOAuth1Signature(from signatureBaseString: String, using credentials: BrickLinkRequestCredentials) -> String {
         
-        let key = [credentials.consumerSecret.rawValue, credentials.tokenSecret.rawValue] .map { $0.urlEncoded! } .joined(separator: "&")
+        let key = [credentials.consumerSecret, credentials.tokenSecret] .map { $0.urlEncoded! } .joined(separator: "&")
         
         guard let digest = try? HMAC(key: key, variant: .sha1).authenticate(signatureBaseString.bytes) else {
             

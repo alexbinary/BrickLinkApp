@@ -15,21 +15,21 @@ struct OAuthRequestParameterSet {
     let timestamp = Int(Date().timeIntervalSince1970)
     let nonce = UUID().uuidString
     
-    let consumerKey: OAuthRequestCredentials.ConsumerKey
-    let accessToken: OAuthRequestCredentials.AccessToken
+    let consumerKey: String
+    let accessToken: String
     
     
-    init(with credentials: OAuthRequestCredentials) {
+    init(with credentials: BrickLinkRequestCredentials) {
     
         self.consumerKey = credentials.consumerKey
-        self.accessToken = credentials.accessToken
+        self.accessToken = credentials.tokenValue
     }
     
     
     var rawValues: [String: String] { [
         
-        "oauth_consumer_key": consumerKey.rawValue,
-        "oauth_token": accessToken.rawValue,
+        "oauth_consumer_key": consumerKey,
+        "oauth_token": accessToken,
         "oauth_signature_method": signatureMethod.rawValue,
         "oauth_timestamp": "\(timestamp)",
         "oauth_nonce": nonce,

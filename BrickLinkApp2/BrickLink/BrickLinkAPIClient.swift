@@ -3,8 +3,6 @@ import Foundation
 
 
 
-/// An object that issues requests to the BrickLink webservice.
-///
 struct BrickLinkAPIClient {
     
     
@@ -13,14 +11,12 @@ struct BrickLinkAPIClient {
     let brickLinkAPIBaseURL = URL(string: "https://api.bricklink.com/api/store/v1")!
     
     
-    /// The default OAuth credentials to use to authenticate requests (provided by BrickLink).
-    ///
-    let brickLinkOAuthCredentials = OAuthRequestCredentials(
+    let requestCredentials = BrickLinkRequestCredentials(
     
         consumerKey: "5384025985CF43F391463885E5B033C6",
         consumerSecret: "1690FA35B37E49FBAF19542D5A02F9EA",
         
-        accessToken: "1690FA35B37E49FBAF19542D5A02F9EA",
+        tokenValue: "1690FA35B37E49FBAF19542D5A02F9EA",
         tokenSecret: "FC274C6B460B4EB8BCFB22A41E6F1A01"
     )
     
@@ -106,7 +102,7 @@ struct BrickLinkAPIClient {
         
         let request = createRequest(url: endPointURL)
         
-        let authenticatedRequest = OAuth1Authenticator().authenticate(request, with: brickLinkOAuthCredentials)
+        let authenticatedRequest = OAuth1Authenticator().authenticate(request, with: requestCredentials)
         
         execute(authenticatedRequest)
     }

@@ -8,11 +8,23 @@ struct OrderRowView : View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Id: \(order.orderId)")
-            Text("Date: \(order.dateOrdered)")
-            Text("Buyer: \(order.buyerName)")
-            Text("Status: \(order.status.rawValue)")
-            Text("Changed: \(order.dateStatusChanged)")
+            HStack {
+                Text(order.orderId.stringValue).font(.title)
+                Spacer()
+                VStack(alignment: .leading) {
+                    Text("Received").font(.caption)
+                    Text(DateFormatter.localizedString(from: order.dateOrdered, dateStyle: .full, timeStyle: .none))
+                }
+            }
+            HStack {
+                Text("Buyer: \(order.buyerName)")
+                Spacer()
+                VStack(alignment: .trailing) {
+                    Text(order.status.rawValue)
+                    Text("Changed " + DateFormatter.localizedString(from: order.dateStatusChanged, dateStyle: .full, timeStyle: .short))
+                        .font(.caption)
+                }
+            }
         }
     }
 }
@@ -26,7 +38,9 @@ struct OrderRowView_Previews : PreviewProvider {
             OrderRowView(order: testOrders[22])
             OrderRowView(order: testOrders[0])
             
-        }.previewLayout(.sizeThatFits)
+        }
+            .previewLayout(.sizeThatFits)
+            .environment(\.locale, Locale(identifier: "fr-FR"))
     }
 }
 #endif

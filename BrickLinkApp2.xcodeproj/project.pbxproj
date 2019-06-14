@@ -16,8 +16,8 @@
 		290F75F422AD63E7007B74BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */; };
 		290F75FD22AD66CF007B74BD /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 290F75FC22AD66CF007B74BD /* CryptoSwift */; };
 		2963B97A22B3F78A00E03F35 /* BrickLinkCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */; };
+		29BDA2FD22B4324E004B62A0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BDA2FC22B4324E004B62A0 /* Models.swift */; };
 		29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */; };
-		29EAF43822B406FA00CABFF6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF43722B406FA00CABFF6 /* Models.swift */; };
 		29EAF43B22B408DA00CABFF6 /* orders.json in Resources */ = {isa = PBXBuildFile; fileRef = 29EAF43A22B408DA00CABFF6 /* orders.json */; };
 		29EAF43E22B42C7400CABFF6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF43D22B42C7400CABFF6 /* LoadingView.swift */; };
 		29EAF44022B42CD200CABFF6 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF43F22B42CD200CABFF6 /* PreviewData.swift */; };
@@ -38,8 +38,8 @@
 		290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BrickLinkApp2.entitlements; sourceTree = "<group>"; };
 		2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BrickLinkCredentials.plist; sourceTree = "<group>"; };
 		2963B97D22B3FB2700E03F35 /* Models.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Models.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		29BDA2FC22B4324E004B62A0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkAPIClient.swift; sourceTree = "<group>"; };
-		29EAF43722B406FA00CABFF6 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		29EAF43A22B408DA00CABFF6 /* orders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orders.json; sourceTree = "<group>"; };
 		29EAF43D22B42C7400CABFF6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		29EAF43F22B42CD200CABFF6 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 				29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */,
 				290881A722B365C20084BA1B /* BrickLinkAPIClient+Auth.swift */,
 				29F405CE22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift */,
-				29EAF43722B406FA00CABFF6 /* Models.swift */,
+				29BDA2FC22B4324E004B62A0 /* Models.swift */,
 			);
 			path = BrickLink;
 			sourceTree = "<group>";
@@ -203,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29BDA2FD22B4324E004B62A0 /* Models.swift in Sources */,
 				29F405CF22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift in Sources */,
 				290F75E822AD63E3007B74BD /* AppDelegate.swift in Sources */,
 				29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */,
@@ -212,7 +213,6 @@
 				29EAF43E22B42C7400CABFF6 /* LoadingView.swift in Sources */,
 				290F75EC22AD63E3007B74BD /* OrdersListView.swift in Sources */,
 				29EAF44222B42FA000CABFF6 /* OrderRowView.swift in Sources */,
-				29EAF43822B406FA00CABFF6 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

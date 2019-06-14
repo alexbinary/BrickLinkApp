@@ -17,6 +17,7 @@ struct OrdersListView : View {
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         OrdersListView(orders: testOrders)
+            .environment(\.locale, Locale(identifier: "fr-FR"))
     }
 }
 #endif

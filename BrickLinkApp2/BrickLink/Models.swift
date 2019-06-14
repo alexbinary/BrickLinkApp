@@ -12,9 +12,9 @@ struct APIResponse<T>: Decodable where T: Decodable {
 
 struct Order: Decodable, Identifiable {
     
-    var id: String { "\(orderId)" }
+    var id: String { orderId.stringValue }
     
-    let orderId: Int
+    let orderId: OrderId
     let dateOrdered: Date
     let dateStatusChanged: Date
     let buyerName: String
@@ -24,6 +24,18 @@ struct Order: Decodable, Identifiable {
     let uniqueCount: Int
 }
 
+struct OrderId: Decodable, CustomStringConvertible {
+    
+    let stringValue: String
+    
+    init(from decoder: Decoder) throws {
+        
+        let intValue = try! decoder.singleValueContainer().decode(Int.self)
+        self.stringValue = "\(intValue)"
+    }
+    
+    var description: String { stringValue }
+}
 
 enum OrderStatus: String, Decodable {
     

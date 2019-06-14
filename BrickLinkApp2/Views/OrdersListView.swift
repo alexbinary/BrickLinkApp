@@ -2,7 +2,7 @@
 import SwiftUI
 
 
-struct ContentView : View {
+struct OrdersListView : View {
     
     var orders: [Order]
     
@@ -16,7 +16,7 @@ struct ContentView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView(orders: testOrders)
+        OrdersListView(orders: testOrders)
     }
 }
 #endif

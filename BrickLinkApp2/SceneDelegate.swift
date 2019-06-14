@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         client.getMyOrdersReceived { orders in
             
             DispatchQueue.main.async {
-                self.window!.rootViewController = UIHostingController(rootView: ContentView(orders: orders))
+                self.window!.rootViewController = UIHostingController(rootView: OrdersListView(orders: orders))
             }
             
         }

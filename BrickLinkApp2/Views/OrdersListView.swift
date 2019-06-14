@@ -7,7 +7,7 @@ struct OrdersListView : View {
     var orders: [Order]
     
     var body: some View {
-        List(orders.identified(by: \.orderId)) { order in
+        List(orders) { order in
             OrderRowView(order: order)
         }
     }

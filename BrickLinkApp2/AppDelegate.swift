@@ -13,7 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let client = BrickLinkAPIClient(with: credentials)
         
-        client.getMyOrdersReceived()
+        client.getMyOrdersReceived { orders in
+            
+            print(orders)
+        }
         
         return true
     }

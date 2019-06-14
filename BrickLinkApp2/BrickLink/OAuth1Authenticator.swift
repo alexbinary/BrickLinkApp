@@ -8,35 +8,7 @@ import Foundation
 struct OAuth1Authenticator {
     
     
-    public func authenticate(_ request: URLRequest, with credentials: BrickLinkRequestCredentials) -> URLRequest {
-        
-        var authenticatedRequest = request
-        
-        let authorizationHeader = buildAuthorizationHeader(for: request, using: credentials)
-        
-        authenticatedRequest.addValue(authorizationHeader, forHTTPHeaderField: "Authorization")
-        
-        return authenticatedRequest
-    }
     
-    
-    
-    func buildAuthorizationHeader(for request: URLRequest, using credentials: BrickLinkRequestCredentials) -> String {
-        
-        let oauthRequestParameters = OAuthRequestParameterSet(with: credentials)
-        
-        let signature = OAuthSignature(for: request, with: oauthRequestParameters, using: credentials)
-        
-        let encodedSignature = signature.rawValue.urlEncoded!
-        
-        return [
-            
-            "OAuth realm=\"\"",
-            oauthRequestParameters.rawValues.map { $0+"=\""+($1.urlEncoded ?? $1)+"\"" } .joined(separator: ","),
-            "oauth_signature=\"\(encodedSignature)\""
-            
-        ].joined(separator: ",")
-    }
     
     
     

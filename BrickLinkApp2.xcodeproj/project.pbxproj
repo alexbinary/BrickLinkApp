@@ -18,6 +18,7 @@
 		2963B97A22B3F78A00E03F35 /* BrickLinkCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */; };
 		29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */; };
 		29EAF43822B406FA00CABFF6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF43722B406FA00CABFF6 /* Models.swift */; };
+		29EAF43B22B408DA00CABFF6 /* orders.json in Resources */ = {isa = PBXBuildFile; fileRef = 29EAF43A22B408DA00CABFF6 /* orders.json */; };
 		29F405CF22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F405CE22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		2963B97D22B3FB2700E03F35 /* Models.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Models.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkAPIClient.swift; sourceTree = "<group>"; };
 		29EAF43722B406FA00CABFF6 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		29EAF43A22B408DA00CABFF6 /* orders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orders.json; sourceTree = "<group>"; };
 		29F405CE22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkRequestCredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				290F75ED22AD63E7007B74BD /* Assets.xcassets */,
 				290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */,
 				290F75F522AD63E7007B74BD /* Info.plist */,
+				29EAF43A22B408DA00CABFF6 /* orders.json */,
 				290F75EF22AD63E7007B74BD /* Preview Content */,
 				2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */,
 			);
@@ -172,6 +175,7 @@
 				290F75F122AD63E7007B74BD /* Preview Assets.xcassets in Resources */,
 				290F75EE22AD63E7007B74BD /* Assets.xcassets in Resources */,
 				2963B97A22B3F78A00E03F35 /* BrickLinkCredentials.plist in Resources */,
+				29EAF43B22B408DA00CABFF6 /* orders.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

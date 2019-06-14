@@ -21,9 +21,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Use a UIHostingController as window root view controller
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = UIHostingController(rootView: ContentView())
+        window.rootViewController = UIHostingController(rootView: LoadingView())
         self.window = window
         window.makeKeyAndVisible()
+        
+        loadOrders()
+    }
+    
+    func loadOrders() {
+        
+        let credentials = loadBrickLinkCredentials()
+        let client = BrickLinkAPIClient(with: credentials)
+        
+        client.getMyOrdersReceived { orders in
+            
+            DispatchQueue.main.async {
+                self.window!.rootViewController = UIHostingController(rootView: ContentView(orders: orders))
+            }
+            
+        }
+    }
+    
+    func loadBrickLinkCredentials() -> BrickLinkRequestCredentials {
+        
+        let url = Bundle.main.url(forResource: "BrickLinkCredentials", withExtension: "plist")!
+        
+        let data = try! Data(contentsOf: url)
+        
+        let credentials = try! PropertyListDecoder().decode(BrickLinkRequestCredentials.self, from: data)
+        
+        return credentials
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

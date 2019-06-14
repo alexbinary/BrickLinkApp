@@ -20,7 +20,7 @@ struct OrderRowView : View {
                 Text(order.buyerName)
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text(order.status.rawValue)
+                    OrderStatusView(status: order.status)
                     Text("Changed " + DateFormatter.localizedString(from: order.dateStatusChanged, dateStyle: .full, timeStyle: .short))
                         .font(.caption)
                 }
@@ -44,3 +44,22 @@ struct OrderRowView_Previews : PreviewProvider {
     }
 }
 #endif
+
+let statusColors = [
+    OrderStatus.completed: Color.green,
+    OrderStatus.shipped: Color.blue,
+    OrderStatus.received: Color.orange
+]
+
+struct OrderStatusView : View {
+    let status: OrderStatus
+    var body: some View {
+        return Text(status.rawValue)
+            .padding(.leading, 8)
+            .padding(.trailing, 8)
+            .padding(.top, 3)
+            .padding(.bottom, 3)
+            .background(statusColors[status])
+            .cornerRadius(8)
+    }
+}

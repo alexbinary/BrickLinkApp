@@ -15,7 +15,7 @@ struct OrdersListView : View {
                 }
             }
             List {
-                ForEach(orders) { order in
+                ForEach(orders.reversed()) { order in
                     if order.status == OrderStatus.allCases[self.selectedStatus] {
                         OrderRowView(order: order)
                     }

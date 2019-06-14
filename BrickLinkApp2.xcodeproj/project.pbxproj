@@ -54,6 +54,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		290881A622B363A20084BA1B /* BrickLink */ = {
+			isa = PBXGroup;
+			children = (
+				29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */,
+				29F405CE22AD9B6B00CCA0E1 /* OAuthRequestCredentials.swift */,
+				2907A6E222AE858F00586868 /* OAuth1Authenticator.swift */,
+				29F2B55F22AEA24C002FED69 /* OAuthRequestParameterSet.swift */,
+				29F2B56122AEA537002FED69 /* OAuthSignature.swift */,
+				29F2B56322AEA622002FED69 /* OAuthSignatureBaseString.swift */,
+				29F2B56522AEA846002FED69 /* OAuthAuthorization.swift */,
+			);
+			path = BrickLink;
+			sourceTree = "<group>";
+		};
 		290F75DB22AD63E3007B74BD = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +87,7 @@
 		290F75E622AD63E3007B74BD /* BrickLinkApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				290881A622B363A20084BA1B /* BrickLink */,
 				290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */,
 				290F75E722AD63E3007B74BD /* AppDelegate.swift */,
 				290F75E922AD63E3007B74BD /* SceneDelegate.swift */,
@@ -81,13 +96,6 @@
 				290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */,
 				290F75F522AD63E7007B74BD /* Info.plist */,
 				290F75EF22AD63E7007B74BD /* Preview Content */,
-				29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */,
-				29F405CE22AD9B6B00CCA0E1 /* OAuthRequestCredentials.swift */,
-				2907A6E222AE858F00586868 /* OAuth1Authenticator.swift */,
-				29F2B55F22AEA24C002FED69 /* OAuthRequestParameterSet.swift */,
-				29F2B56122AEA537002FED69 /* OAuthSignature.swift */,
-				29F2B56322AEA622002FED69 /* OAuthSignatureBaseString.swift */,
-				29F2B56522AEA846002FED69 /* OAuthAuthorization.swift */,
 			);
 			path = BrickLinkApp2;
 			sourceTree = "<group>";

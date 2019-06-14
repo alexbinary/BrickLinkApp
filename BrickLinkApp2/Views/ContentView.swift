@@ -3,10 +3,9 @@ import SwiftUI
 
 
 struct ContentView : View {
-    @State var orders: [Order]
-    func setOrders(_ orders: [Order]) {
-        self.orders = orders
-    }
+    
+    var orders: [Order]
+    
     var body: some View {
         List(orders.identified(by: \.orderId)) { order in
             VStack(alignment: .leading) {

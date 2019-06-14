@@ -4,12 +4,19 @@ import CryptoSwift
 
 
 
+/// See http://apidev.bricklink.com/redmine/projects/bricklink-api/wiki/Authorization
+/// See https://oauth.net/core/1.0/
+
+
+
 extension URLRequest {
     
     
     mutating func authenticate(with credentials: BrickLinkRequestCredentials) {
         
         let authorizationHeader = buildAuthorizationHeader(using: credentials)
+        
+        print(authorizationHeader)
         
         addValue(authorizationHeader, forHTTPHeaderField: "Authorization")
     }
@@ -19,13 +26,17 @@ extension URLRequest {
         
         let oauthParameters = generateCompleteOAuthParameterSet(using: credentials)
         
-        return "OAuth " + oauthParameters.map { $0 + "=" + $1.urlEncoded!.quoted } .joined(separator: ",")
+        print(oauthParameters)
+        
+        let headerValue = "OAuth " + oauthParameters.map { $0 + "=" + $1.urlEncoded!.quoted } .joined(separator: ",")
+        
+        return headerValue
     }
     
     
     func generateCompleteOAuthParameterSet(using credentials: BrickLinkRequestCredentials) -> [String: String] {
         
-        let baseOAuthParameters = [
+        let baseParameterSet = [
             
             "oauth_consumer_key":
                 credentials.consumerKey,
@@ -37,7 +48,7 @@ extension URLRequest {
                 "HMAC-SHA1",
             
             "oauth_timestamp":
-                "\(Int(Date().timeIntervalSince1970)))",
+                "\(Int(Date().timeIntervalSince1970))",
             
             "oauth_nonce":
                 UUID().uuidString,
@@ -46,20 +57,59 @@ extension URLRequest {
                 "1.0",
         ]
         
-        let requestParameters = collectRequestParameters()
+        let signature = generateSignature(using: baseParameterSet, with: credentials)
         
-        let parametersForSignature =
-            
-            baseOAuthParameters .merging(requestParameters, uniquingKeysWith: { (v1, v2) in v1 })
-        
-        let signature = generateSignature(using: parametersForSignature, with: credentials)
-        
-        return baseOAuthParameters.merging([
+        let completeOAuthParameterSet = baseParameterSet.merging([
             
             "realm": "",
             "oauth_signature": signature
             
         ], uniquingKeysWith: { (v1, v2) in v1 })
+        
+        return completeOAuthParameterSet
+    }
+    
+    
+    func generateSignature(using oauthParameters: [String: String], with credentials: BrickLinkRequestCredentials) -> String {
+        
+        let signatureBaseString = buildSignatureBaseString(with: oauthParameters)
+        
+        print(signatureBaseString)
+        
+        let key = buildSigningKey(from: credentials)
+        
+        print(key)
+        
+        let digest = try! HMAC(key: key, variant: .sha1).authenticate(signatureBaseString.bytes)
+        
+        let signature = digest.toBase64()!
+        
+        return signature
+    }
+    
+    
+    func buildSignatureBaseString(with oauthParameters: [String: String]) -> String {
+        
+        let requestParameters = collectRequestParameters()
+        
+        let parametersForSignature =
+            
+            oauthParameters .merging(requestParameters, uniquingKeysWith: { (v1, v2) in v1 })
+        
+        print(parametersForSignature)
+        
+        let elements = [
+            
+            httpMethod!.uppercased(),
+            normalize(self.url!),
+            normalize(parametersForSignature),
+        ]
+        
+        print(elements)
+        
+        let signatureBaseString = elements .map { $0.urlEncoded! } .joined(separator: "&")
+        
+        return signatureBaseString
     }
     
     
@@ -75,27 +125,6 @@ extension URLRequest {
     }
     
     
-    func generateSignature(using requestParameters: [String: String], with credentials: BrickLinkRequestCredentials) -> String {
-        
-        let signatureBaseString = buildSignatureBaseString(with: requestParameters)
-        
-        let signature = sign(signatureBaseString, with: credentials)
-        
-        return signature
-    }
-    
-    
-    func buildSignatureBaseString(with requestParameters: [String: String]) -> String {
-        
-        [
-            httpMethod!.uppercased(),
-            normalize(self.url!),
-            normalize(requestParameters),
-            
-        ].map { $0.urlEncoded! } .joined(separator: "&")
-    }
-    
-    
     func normalize(_ url: URL) -> String {
         
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
@@ -103,7 +132,9 @@ extension URLRequest {
         urlComponents.query = nil
         urlComponents.fragment = nil
         
-        return urlComponents.url!.absoluteString
+        let normalizedUrl = urlComponents.url!.absoluteString
+        
+        return normalizedUrl
     }
     
     
@@ -111,27 +142,19 @@ extension URLRequest {
         
         let sorted = requestParameters.sorted { $0.key.compare($1.key) == .orderedAscending }
         
-        let concatenated = sorted.map { $0.key + "=" + $0.value } .joined(separator: "&")
+        let concatenated = sorted.map { $0.key + "=" + $0.value.urlEncoded! } .joined(separator: "&")
         
         return concatenated
     }
     
     
-    func sign(_ signatureBaseString: String, with credentials: BrickLinkRequestCredentials) -> String {
-        
-        let key = buildSigningKey(from: credentials)
-        
-        let digest = try! HMAC(key: key, variant: .sha1).authenticate(signatureBaseString.bytes)
-        
-        return digest.toBase64()!
-    }
-    
-    
     func buildSigningKey(from credentials: BrickLinkRequestCredentials) -> String {
         
-        [ credentials.consumerSecret, credentials.tokenSecret ]
+        let key = [ credentials.consumerSecret, credentials.tokenSecret ]
             
             .map { $0.urlEncoded! } .joined(separator: "&")
+        
+        return key
     }
 }
 
@@ -140,14 +163,16 @@ extension URLRequest {
 extension String {
     
     
-    var quoted: String {
-        
-        return "\"" + self + "\""
-    }
-    
-    
+    /// See https://oauth.net/core/1.0/#rfc.section.5.1
+    ///
     var urlEncoded: String? {
             
         self.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~"))
+    }
+    
+    
+    var quoted: String {
+        
+        return "\"" + self + "\""
     }
 }

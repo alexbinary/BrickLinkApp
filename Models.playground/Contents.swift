@@ -1,5 +1,6 @@
 
 import UIKit
+import SwiftUI
 
 
 
@@ -40,9 +41,11 @@ struct APIResponse<T>: Decodable where T: Decodable {
 }
 
 
-struct Order: Decodable {
+struct Order: Decodable, Identifiable {
     
-    let orderId: Int
+    var id: String { orderId.stringValue }
+    
+    let orderId: OrderId
     let dateOrdered: Date
     let dateStatusChanged: Date
     let buyerName: String
@@ -50,14 +53,37 @@ struct Order: Decodable {
     let status: OrderStatus
     let totalCount: Int
     let uniqueCount: Int
+    let shipping: Shipping?
 }
 
+struct OrderId: Decodable, CustomStringConvertible {
+    
+    let stringValue: String
+    
+    init(from decoder: Decoder) throws {
+        
+        let intValue = try! decoder.singleValueContainer().decode(Int.self)
+        self.stringValue = "\(intValue)"
+    }
+    
+    var description: String { stringValue }
+}
 
 enum OrderStatus: String, Decodable {
     
     case completed = "COMPLETED"
     case shipped = "SHIPPED"
     case received = "RECEIVED"
+}
+
+struct Shipping: Decodable {
+    
+    let address: Address
+}
+
+struct Address: Decodable {
+    
+    let countryCode: String
 }
 
 

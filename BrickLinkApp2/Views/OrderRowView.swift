@@ -16,8 +16,8 @@ struct OrderRowView : View {
                     Text(DateFormatter.localizedString(from: order.dateOrdered, dateStyle: .full, timeStyle: .none))
                 }
             }
-            HStack {
-                Text("Buyer: \(order.buyerName)")
+            HStack(alignment: .top) {
+                Text(order.buyerName)
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text(order.status.rawValue)

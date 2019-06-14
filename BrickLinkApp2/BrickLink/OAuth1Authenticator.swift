@@ -133,26 +133,3 @@ extension URL {
         return url.absoluteString
     }
 }
-
-
-
-extension String {
-    
-    
-    /// Returns a new string created by replacing characters in the string with percent encoded characters in compliance with the OAuth1 spec.
-    ///
-    /// All non-alphanumeric characters except -_.~ are replaced with the corresponding percent encoded characters.
-    ///
-    /// ## Reference
-    ///
-    /// - [OAuth1 spec](https://oauth.net/core/1.0/#rfc.section.5.1)
-    ///   > "Characters not in the unreserved character set (RFC3986 section 2.3) MUST be encoded. Characters in the unreserved character set MUST NOT be encoded."
-    ///
-    /// - [RFC3986 section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)
-    ///   > "`unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"`"
-    ///
-    var urlEncoded: String? {
-        
-        self.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~"))
-    }
-}

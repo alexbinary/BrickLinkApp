@@ -16,6 +16,7 @@
 		290F75F422AD63E7007B74BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */; };
 		290F75FD22AD66CF007B74BD /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 290F75FC22AD66CF007B74BD /* CryptoSwift */; };
 		2963B97A22B3F78A00E03F35 /* BrickLinkCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */; };
+		2963B97C22B3F9E000E03F35 /* orders_in.json in Resources */ = {isa = PBXBuildFile; fileRef = 2963B97B22B3F9E000E03F35 /* orders_in.json */; };
 		29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */; };
 		29F405CF22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F405CE22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		290F75F522AD63E7007B74BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BrickLinkApp2.entitlements; sourceTree = "<group>"; };
 		2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BrickLinkCredentials.plist; sourceTree = "<group>"; };
+		2963B97B22B3F9E000E03F35 /* orders_in.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = orders_in.json; sourceTree = "<group>"; };
 		29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkAPIClient.swift; sourceTree = "<group>"; };
 		29F405CE22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkRequestCredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 				290F75F522AD63E7007B74BD /* Info.plist */,
 				290F75EF22AD63E7007B74BD /* Preview Content */,
 				2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */,
+				2963B97B22B3F9E000E03F35 /* orders_in.json */,
 			);
 			path = BrickLinkApp2;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			files = (
 				290F75F422AD63E7007B74BD /* LaunchScreen.storyboard in Resources */,
 				290F75F122AD63E7007B74BD /* Preview Assets.xcassets in Resources */,
+				2963B97C22B3F9E000E03F35 /* orders_in.json in Resources */,
 				290F75EE22AD63E7007B74BD /* Assets.xcassets in Resources */,
 				2963B97A22B3F78A00E03F35 /* BrickLinkCredentials.plist in Resources */,
 			);

@@ -37,7 +37,7 @@
 		290F75F522AD63E7007B74BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BrickLinkApp2.entitlements; sourceTree = "<group>"; };
 		2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BrickLinkCredentials.plist; sourceTree = "<group>"; };
-		2963B97D22B3FB2700E03F35 /* Models.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Models.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		2963B97D22B3FB2700E03F35 /* BricklinkModels.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BricklinkModels.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		29BDA2FC22B4324E004B62A0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkAPIClient.swift; sourceTree = "<group>"; };
 		29EAF43A22B408DA00CABFF6 /* orders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orders.json; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		290F75DB22AD63E3007B74BD = {
 			isa = PBXGroup;
 			children = (
-				2963B97D22B3FB2700E03F35 /* Models.playground */,
+				2963B97D22B3FB2700E03F35 /* BricklinkModels.playground */,
 				290F75E622AD63E3007B74BD /* BrickLinkApp2 */,
 				290F75E522AD63E3007B74BD /* Products */,
 			);

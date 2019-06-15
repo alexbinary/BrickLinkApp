@@ -7,23 +7,22 @@ class AppController {
 
 
     let brickLinkAPIClient: BrickLinkAPIClient
+    let ordersStore: OrdersStore
     
     
     init() {
         
         let credentials = AppController.loadBrickLinkCredentials()
         self.brickLinkAPIClient = BrickLinkAPIClient(with: credentials)
+        self.ordersStore = OrdersStore()
     }
-    
-    
-    var orders: [Order] = []
 
     
     func loadOrders(completionHandler: @escaping () -> Void) {
         
         brickLinkAPIClient.getMyOrdersReceived { orders in
             
-            self.orders = orders
+            self.ordersStore.orders = orders
             
             completionHandler()
         }

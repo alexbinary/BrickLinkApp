@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func initView() {
         
-        let hvcOrders = UIHostingController(rootView: OrdersListView(orders: appController.orders))
+        let hvcOrders = UIHostingController(rootView: OrdersListView(orders: appController.ordersStore.orders))
         hvcOrders.tabBarItem.title = "Orders"
         
         let hvcInventory = UIHostingController(rootView: CreateInventoryView())

@@ -5,6 +5,8 @@ import SwiftUI
 
 struct CreateInventoryView : View {
     
+    @EnvironmentObject var inventoryController: AppController
+    
     enum ViewState {
         case initial
         case running
@@ -27,7 +29,7 @@ struct CreateInventoryView : View {
                 
                 Button(action: {
                     self.viewState = .running
-                    appController.createInventory(itemNo: self.itemNo) {
+                    self.inventoryController.createInventory(itemNo: self.itemNo) {
                        self.viewState = .done
                     }
                 }) {
@@ -51,6 +53,8 @@ struct CreateInventoryView_Previews : PreviewProvider {
     static var previews: some View {
 
         CreateInventoryView()
+            .environmentObject(appController)
+            .environment(\.colorScheme, .dark)
     }
 }
 

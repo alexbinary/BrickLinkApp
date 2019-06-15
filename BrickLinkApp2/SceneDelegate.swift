@@ -12,7 +12,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = UIHostingController(rootView: MainView().environmentObject(appController.ordersStore))
+        window!.rootViewController = UIHostingController(rootView: MainView()
+            .environmentObject(appController)
+            .environmentObject(appController.ordersStore)
+        )
         window!.makeKeyAndVisible()
         
         appController.loadOrders { }

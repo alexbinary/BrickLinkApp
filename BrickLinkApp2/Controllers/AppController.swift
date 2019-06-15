@@ -1,9 +1,14 @@
 
 import Foundation
+import SwiftUI
+import Combine
 
 
 
-class AppController {
+class AppController: BindableObject {
+    
+    
+    let didChange = PassthroughSubject<AppController, Never>()
 
 
     let brickLinkAPIClient: BrickLinkAPIClient
@@ -30,12 +35,12 @@ class AppController {
     
     func createInventory(itemNo: String, completionHandler: @escaping () -> Void) {
         
-//        let timer = Timer(timeInterval: 2, repeats: false, block: { timer in
-//            completionHandler()
-//        })
-//        RunLoop.main.add(timer, forMode: .default)
-//
-//        return
+        let timer = Timer(timeInterval: 2, repeats: false, block: { timer in
+            completionHandler()
+        })
+        RunLoop.main.add(timer, forMode: .default)
+
+        return
         
         let inventory = Inventory(
             

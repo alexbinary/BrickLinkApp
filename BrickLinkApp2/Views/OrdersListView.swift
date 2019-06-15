@@ -19,13 +19,21 @@ struct OrdersListView : View {
                 }
                 
                 ForEach(ordersStore.orders.reversed()) { order in
-                    if order.status != .completed || !self.showOnlyNotCompleted {
+                    if self.orderShouldBeVisible(order) {
                         OrderRowView(order: order)
                     }
                 }
             }
                 .navigationBarTitle(Text("My Orders"))
         }
+    }
+    
+    func orderShouldBeVisible(_ order: Order) -> Bool {
+        
+        if self.showOnlyNotCompleted && order.status == .completed {
+            return false
+        }
+        return true
     }
 }
 
@@ -39,6 +47,7 @@ struct ContentView_Previews : PreviewProvider {
 
         OrdersListView()
             .environmentObject(testOrdersStore)
+            .environment(\.colorScheme, .dark)
     }
 }
 

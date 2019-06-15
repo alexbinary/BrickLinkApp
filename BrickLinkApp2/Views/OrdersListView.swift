@@ -47,7 +47,7 @@ struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
 
         OrdersListView()
-            .environmentObject(testOrdersStore)
+            .environmentObject(dummyOrdersStore)
             .environment(\.colorScheme, .dark)
     }
 }

@@ -12,17 +12,15 @@ struct OrdersListView : View {
 
         NavigationView {
 
-            VStack {
-
+            List {
+                
                 Toggle(isOn: $showOnlyNotCompleted) {
-                    Text("Show only not completed")
+                    Text("Not completed only")
                 }
-
-                List {
-                    ForEach(ordersStore.orders.reversed()) { order in
-                        if order.status != .completed || !self.showOnlyNotCompleted {
-                            OrderRowView(order: order)
-                        }
+                
+                ForEach(ordersStore.orders.reversed()) { order in
+                    if order.status != .completed || !self.showOnlyNotCompleted {
+                        OrderRowView(order: order)
                     }
                 }
             }

@@ -16,6 +16,7 @@
 		290F75F422AD63E7007B74BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */; };
 		290F75FD22AD66CF007B74BD /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 290F75FC22AD66CF007B74BD /* CryptoSwift */; };
 		2915707722B57A5400557C9E /* OrdersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915707622B57A5400557C9E /* OrdersStore.swift */; };
+		2915707B22B583FC00557C9E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915707A22B583FC00557C9E /* MainView.swift */; };
 		2963B97A22B3F78A00E03F35 /* BrickLinkCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */; };
 		29BDA2FD22B4324E004B62A0 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BDA2FC22B4324E004B62A0 /* APIResponse.swift */; };
 		29C2F0F122B52C01008FB0F8 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C2F0F022B52C01008FB0F8 /* Order.swift */; };
@@ -42,6 +43,7 @@
 		290F75F522AD63E7007B74BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BrickLinkApp2.entitlements; sourceTree = "<group>"; };
 		2915707622B57A5400557C9E /* OrdersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStore.swift; sourceTree = "<group>"; };
+		2915707A22B583FC00557C9E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BrickLinkCredentials.plist; sourceTree = "<group>"; };
 		2963B97D22B3FB2700E03F35 /* BricklinkModels.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BricklinkModels.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		29BDA2FC22B4324E004B62A0 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		29EAF43C22B42C4400CABFF6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2915707A22B583FC00557C9E /* MainView.swift */,
 				29EAF43D22B42C7400CABFF6 /* LoadingView.swift */,
 				290F75EB22AD63E3007B74BD /* OrdersListView.swift */,
 				29EAF44122B42FA000CABFF6 /* OrderRowView.swift */,
@@ -243,6 +246,7 @@
 				29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */,
 				29C2F0F122B52C01008FB0F8 /* Order.swift in Sources */,
 				29C2F0F822B53B88008FB0F8 /* CreateInventoryView.swift in Sources */,
+				2915707B22B583FC00557C9E /* MainView.swift in Sources */,
 				290F75EA22AD63E3007B74BD /* SceneDelegate.swift in Sources */,
 				290881A822B365C20084BA1B /* BrickLinkAPIClient+Auth.swift in Sources */,
 				29EAF44022B42CD200CABFF6 /* data.swift in Sources */,

@@ -3,7 +3,7 @@ import Foundation
 
 
 
-struct AppController {
+class AppController {
 
 
     let brickLinkAPIClient: BrickLinkAPIClient
@@ -14,23 +14,35 @@ struct AppController {
         let credentials = AppController.loadBrickLinkCredentials()
         self.brickLinkAPIClient = BrickLinkAPIClient(with: credentials)
     }
+    
+    
+    var orders: [Order] = []
 
     
-    func loadOrders(completionHandler: @escaping ([Order]) -> Void) {
+    func loadOrders(completionHandler: @escaping () -> Void) {
         
         brickLinkAPIClient.getMyOrdersReceived { orders in
             
-            completionHandler(orders)
+            self.orders = orders
+            
+            completionHandler()
         }
     }
     
-    func createInventory(completionHandler: @escaping (Inventory) -> Void) {
+    func createInventory(itemNo: String, completionHandler: @escaping () -> Void) {
+        
+//        let timer = Timer(timeInterval: 2, repeats: false, block: { timer in
+//            completionHandler()
+//        })
+//        RunLoop.main.add(timer, forMode: .default)
+//
+//        return
         
         let inventory = Inventory(
             
             item: InventoryItem(
                 type: .part,
-                no: "93274"
+                no: itemNo
             ),
             colorId: .blue,
             quantity: 1,
@@ -42,7 +54,9 @@ struct AppController {
         
         brickLinkAPIClient.create(inventory) { createdInventory in
             
-            completionHandler(createdInventory)
+            print(createdInventory)
+            
+            completionHandler()
         }
     }
     

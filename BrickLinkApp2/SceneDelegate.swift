@@ -11,34 +11,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        self.window = window
-        window.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.makeKeyAndVisible()
+        
+        window!.rootViewController = UIHostingController(rootView: LoadingView(text: "Loading"))
         
         loadOrders()
-//        createInventory()
+    }
+    
+    func initView() {
+        
+        let hvcOrders = UIHostingController(rootView: OrdersListView(orders: appController.orders))
+        hvcOrders.tabBarItem.title = "Orders"
+        
+        let hvcInventory = UIHostingController(rootView: CreateInventoryView())
+        hvcInventory.tabBarItem.title = "Inventory"
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [
+            hvcOrders,
+            hvcInventory
+        ]
+        
+        window!.rootViewController = tabBarController
     }
     
     func loadOrders() {
         
-        window!.rootViewController = UIHostingController(rootView: LoadingView(text: "Loading orders"))
-        
-        appController.loadOrders { orders in
+        appController.loadOrders {
             
             DispatchQueue.main.async {
-                self.window!.rootViewController = UIHostingController(rootView: OrdersListView(orders: orders))
-            }
-        }
-    }
-    
-    func createInventory() {
-        
-        window!.rootViewController = UIHostingController(rootView: LoadingView(text: "Creating inventory"))
-        
-        appController.createInventory { createdInventory in
-            
-            DispatchQueue.main.async {
-                self.window!.rootViewController = UIHostingController(rootView: LoadingView(text: "Inventory created"))
+                
+                self.initView()
             }
         }
     }

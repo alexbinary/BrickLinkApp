@@ -14,15 +14,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.makeKeyAndVisible()
         
-//        window!.rootViewController = UIHostingController(rootView: LoadingView(text: "Loading"))
-        
-        self.initView()
-        
-        loadOrders()
-    }
-    
-    func initView() {
-        
         let hvcOrders = UIHostingController(rootView: OrdersListView().environmentObject(appController.ordersStore))
         hvcOrders.tabBarItem.title = "Orders"
         
@@ -36,16 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ]
         
         window!.rootViewController = tabBarController
-    }
-    
-    func loadOrders() {
         
-        appController.loadOrders {
-            
-            DispatchQueue.main.async {
-                
-//                self.initView()
-            }
-        }
+        appController.loadOrders { }
     }
 }

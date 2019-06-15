@@ -12,6 +12,10 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    
+    lazy var credentials = loadBrickLinkCredentials()
+    lazy var client = BrickLinkAPIClient(with: credentials)
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -21,24 +25,50 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Use a UIHostingController as window root view controller
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = UIHostingController(rootView: LoadingView(text: "Loading orders"))
         self.window = window
         window.makeKeyAndVisible()
         
         loadOrders()
+//        createInventory()
     }
     
     func loadOrders() {
         
-        let credentials = loadBrickLinkCredentials()
-        let client = BrickLinkAPIClient(with: credentials)
+        window!.rootViewController = UIHostingController(rootView: LoadingView(text: "Loading orders"))
         
         client.getMyOrdersReceived { orders in
             
             DispatchQueue.main.async {
                 self.window!.rootViewController = UIHostingController(rootView: OrdersListView(orders: orders))
             }
+        }
+    }
+    
+    func createInventory() {
+        
+        window!.rootViewController = UIHostingController(rootView: LoadingView(text: "Creating inventory"))
+        
+        let inventory = Inventory(
             
+            item: InventoryItem(
+                type: .part,
+                no: "93274"
+            ),
+            colorId: .blue,
+            quantity: 1,
+            unitPrice: 0.24,
+            newOrUsed: .used,
+            isRetain: true,
+            isStockRoom: true
+        )
+        
+        client.create(inventory) { createdInventory in
+            
+            print(createdInventory)
+            
+            DispatchQueue.main.async {
+                self.window!.rootViewController = UIHostingController(rootView: LoadingView(text: "Inventory created"))
+            }
         }
     }
     

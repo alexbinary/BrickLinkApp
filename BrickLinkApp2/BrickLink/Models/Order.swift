@@ -4,12 +4,6 @@ import SwiftUI
 
 
 
-struct APIResponse<T>: Decodable where T: Decodable {
-    
-    let data: T
-}
-
-
 struct Order: Decodable, Identifiable {
     
     var id: String { orderId.stringValue }
@@ -24,6 +18,7 @@ struct Order: Decodable, Identifiable {
     let uniqueCount: Int
 }
 
+
 struct OrderId: Decodable, CustomStringConvertible {
     
     let stringValue: String
@@ -36,6 +31,7 @@ struct OrderId: Decodable, CustomStringConvertible {
     
     var description: String { stringValue }
 }
+
 
 enum OrderStatus: String, Decodable, CaseIterable {
     

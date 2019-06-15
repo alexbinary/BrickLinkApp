@@ -32,6 +32,28 @@ struct BrickLinkAPIClient {
     }
     
     
+    func create(_ inventory: Inventory, completionHandler: @escaping (Inventory) -> Void) {
+        
+        let url = URL(string: "https://api.bricklink.com/api/store/v1/inventories")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = Data(encodingAsJSON: inventory)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        print(String(data: request.httpBody!, encoding: .utf8)!)
+        
+        request.authenticate(with: credentials)
+        
+        getResponse(for: request) { (response: APIResponse<Inventory>) in
+            
+            let inventory = response.data
+            
+            completionHandler(inventory)
+        }
+    }
+    
+    
     func getResponse<T>(for request: URLRequest, completionHandler: @escaping (T) -> Void) where T: Decodable {
         
         URLSession(configuration: .default).dataTask (with: request) { (data, response, error) in
@@ -46,6 +68,14 @@ struct BrickLinkAPIClient {
 
 
 extension Data {
+    
+    init<T>(encodingAsJSON value: T) where T: Encodable {
+    
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        
+        self = try! encoder.encode(value)
+    }
     
     func decode<T>() -> T where T: Decodable {
         

@@ -107,7 +107,7 @@ extension URLRequest {
         
         URLComponents(url: self.url!, resolvingAgainstBaseURL: false)!
             
-            .queryItems! .forEach { parameters[$0.name] = $0.value }
+            .queryItems? .forEach { parameters[$0.name] = $0.value }
         
         return parameters
     }

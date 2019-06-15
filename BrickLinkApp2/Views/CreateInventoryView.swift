@@ -1,12 +1,7 @@
-//
-//  CreateInventoryView.swift
-//  BrickLinkApp2
-//
-//  Created by Alexandre Bintz on 15/06/2019.
-//  Copyright © 2019 Alexandre Bintz. All rights reserved.
-//
 
 import SwiftUI
+
+
 
 struct CreateInventoryView : View {
     
@@ -17,36 +12,46 @@ struct CreateInventoryView : View {
     }
     
     @State var viewState: ViewState = .initial
-    
     @State var itemNo: String = "93274"
     
     var body: some View {
-        VStack {
+      
+        NavigationView {
         
-            HStack {
-                Text("Item number")
-                TextField($itemNo)
-            }
-            
-            Button(action: {
-                self.viewState = .running
-                appController.createInventory(itemNo: self.itemNo) {
-                   self.viewState = .done
+            VStack {
+        
+                HStack {
+                    Text("Item number")
+                    TextField($itemNo)
                 }
-            }) {
-                viewState == .initial ? Text("Create Inventory") : ( viewState == .running ? Text("") : Text("Inventory created!"))
+                
+                Button(action: {
+                    self.viewState = .running
+                    appController.createInventory(itemNo: self.itemNo) {
+                       self.viewState = .done
+                    }
+                }) {
+                    viewState == .initial ? Text("Create Inventory") : ( viewState == .running ? Text("") : Text("Inventory created!"))
+                }
+                if viewState == .running {
+                    Text("Loading")
+                }
             }
-            if viewState == .running {
-                Text("Loading")
-            }
+                .navigationBarTitle(Text("My Inventory"))
         }
     }
 }
 
+
+
 #if DEBUG
+
 struct CreateInventoryView_Previews : PreviewProvider {
+
     static var previews: some View {
+
         CreateInventoryView()
     }
 }
+
 #endif

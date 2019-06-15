@@ -6,6 +6,7 @@ import SwiftUI
 struct OrdersListView : View {
 
     @EnvironmentObject var ordersStore: OrdersStore
+    
     @State var showOnlyNotCompleted = false
     
     var body: some View {
@@ -18,7 +19,7 @@ struct OrdersListView : View {
                     Text("Not completed only")
                 }
                 
-                ForEach(ordersStore.orders.reversed()) { order in
+                ForEach(ordersStore.ordersMostRecentFirst) { order in
                     if self.orderShouldBeVisible(order) {
                         OrderRowView(order: order)
                     }

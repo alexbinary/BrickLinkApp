@@ -6,8 +6,10 @@ import Combine
 
 
 class OrdersStore: BindableObject {
+
     
     let didChange = PassthroughSubject<OrdersStore, Never>()
+    
     
     var orders: [Order] = [] {
         didSet {
@@ -15,5 +17,10 @@ class OrdersStore: BindableObject {
                 self.didChange.send(self)
             }
         }
+    }
+    
+    
+    var ordersMostRecentFirst: [Order] {
+        orders.sorted { $0.dateOrdered > $1.dateOrdered }
     }
 }

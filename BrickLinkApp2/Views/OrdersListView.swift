@@ -5,18 +5,16 @@ import SwiftUI
 struct OrdersListView : View {
     
     var orders: [Order]
-    @State var selectedStatus = 0
+    @State var showOnlyNotCompleted = false
     
     var body: some View {
         VStack {
-            SegmentedControl(selection: $selectedStatus) {
-                ForEach(0..<OrderStatus.allCases.count) { index in
-                    Text(OrderStatus.allCases[index].rawValue + "" + "(\(self.orders.filter { $0.status == OrderStatus.allCases[index] } .count))").tag(index)
-                }
+            Toggle(isOn: $showOnlyNotCompleted) {
+                Text("Show only not completed")
             }
             List {
                 ForEach(orders.reversed()) { order in
-                    if order.status == OrderStatus.allCases[self.selectedStatus] {
+                    if order.status != .completed || !self.showOnlyNotCompleted {
                         OrderRowView(order: order)
                     }
                 }

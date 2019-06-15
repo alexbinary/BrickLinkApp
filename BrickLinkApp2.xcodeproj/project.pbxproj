@@ -19,6 +19,7 @@
 		29BDA2FD22B4324E004B62A0 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BDA2FC22B4324E004B62A0 /* APIResponse.swift */; };
 		29C2F0F122B52C01008FB0F8 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C2F0F022B52C01008FB0F8 /* Order.swift */; };
 		29C2F0F322B52C2D008FB0F8 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C2F0F222B52C2D008FB0F8 /* Inventory.swift */; };
+		29C2F0F622B5398D008FB0F8 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C2F0F522B5398D008FB0F8 /* AppController.swift */; };
 		29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */; };
 		29EAF43B22B408DA00CABFF6 /* orders.json in Resources */ = {isa = PBXBuildFile; fileRef = 29EAF43A22B408DA00CABFF6 /* orders.json */; };
 		29EAF43E22B42C7400CABFF6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF43D22B42C7400CABFF6 /* LoadingView.swift */; };
@@ -43,6 +44,7 @@
 		29BDA2FC22B4324E004B62A0 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		29C2F0F022B52C01008FB0F8 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		29C2F0F222B52C2D008FB0F8 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		29C2F0F522B5398D008FB0F8 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkAPIClient.swift; sourceTree = "<group>"; };
 		29EAF43A22B408DA00CABFF6 /* orders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orders.json; sourceTree = "<group>"; };
 		29EAF43D22B42C7400CABFF6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		290F75E622AD63E3007B74BD /* BrickLinkApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				29C2F0F422B5397B008FB0F8 /* Controllers */,
 				29EAF43C22B42C4400CABFF6 /* Views */,
 				290881A622B363A20084BA1B /* BrickLink */,
 				290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */,
@@ -126,6 +129,14 @@
 				29C2F0F222B52C2D008FB0F8 /* Inventory.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		29C2F0F422B5397B008FB0F8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				29C2F0F522B5398D008FB0F8 /* AppController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		29EAF43C22B42C4400CABFF6 /* Views */ = {
@@ -219,6 +230,7 @@
 			files = (
 				29C2F0F322B52C2D008FB0F8 /* Inventory.swift in Sources */,
 				29BDA2FD22B4324E004B62A0 /* APIResponse.swift in Sources */,
+				29C2F0F622B5398D008FB0F8 /* AppController.swift in Sources */,
 				29F405CF22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift in Sources */,
 				290F75E822AD63E3007B74BD /* AppDelegate.swift in Sources */,
 				29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */,

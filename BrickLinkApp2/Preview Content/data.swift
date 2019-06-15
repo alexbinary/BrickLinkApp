@@ -3,7 +3,7 @@ import Foundation
 
 
 
-let dummyOrdersStore = makeDummyOrdersStore()
+// MARK: - Helper functions
 
 func makeDummyOrdersStore() -> OrdersStore {
 
@@ -15,3 +15,9 @@ func makeDummyOrdersStore() -> OrdersStore {
     store.orders = response.data
     return store
 }
+
+
+
+// MARK: - Objects
+
+let dummyOrdersStore = makeDummyOrdersStore()

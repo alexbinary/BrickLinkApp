@@ -25,7 +25,7 @@
 		29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */; };
 		29EAF43B22B408DA00CABFF6 /* orders.json in Resources */ = {isa = PBXBuildFile; fileRef = 29EAF43A22B408DA00CABFF6 /* orders.json */; };
 		29EAF43E22B42C7400CABFF6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF43D22B42C7400CABFF6 /* LoadingView.swift */; };
-		29EAF44022B42CD200CABFF6 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF43F22B42CD200CABFF6 /* PreviewData.swift */; };
+		29EAF44022B42CD200CABFF6 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF43F22B42CD200CABFF6 /* data.swift */; };
 		29EAF44222B42FA000CABFF6 /* OrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAF44122B42FA000CABFF6 /* OrderRowView.swift */; };
 		29F405CF22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F405CE22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +52,7 @@
 		29D5513022AD756E0069BE9C /* BrickLinkAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkAPIClient.swift; sourceTree = "<group>"; };
 		29EAF43A22B408DA00CABFF6 /* orders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orders.json; sourceTree = "<group>"; };
 		29EAF43D22B42C7400CABFF6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		29EAF43F22B42CD200CABFF6 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		29EAF43F22B42CD200CABFF6 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		29EAF44122B42FA000CABFF6 /* OrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRowView.swift; sourceTree = "<group>"; };
 		29F405CE22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkRequestCredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,9 +118,9 @@
 		290F75EF22AD63E7007B74BD /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				29EAF43A22B408DA00CABFF6 /* orders.json */,
 				290F75F022AD63E7007B74BD /* Preview Assets.xcassets */,
-				29EAF43F22B42CD200CABFF6 /* PreviewData.swift */,
+				29EAF43A22B408DA00CABFF6 /* orders.json */,
+				29EAF43F22B42CD200CABFF6 /* data.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 				29C2F0F822B53B88008FB0F8 /* CreateInventoryView.swift in Sources */,
 				290F75EA22AD63E3007B74BD /* SceneDelegate.swift in Sources */,
 				290881A822B365C20084BA1B /* BrickLinkAPIClient+Auth.swift in Sources */,
-				29EAF44022B42CD200CABFF6 /* PreviewData.swift in Sources */,
+				29EAF44022B42CD200CABFF6 /* data.swift in Sources */,
 				29EAF43E22B42C7400CABFF6 /* LoadingView.swift in Sources */,
 				290F75EC22AD63E3007B74BD /* OrdersListView.swift in Sources */,
 				29EAF44222B42FA000CABFF6 /* OrderRowView.swift in Sources */,

@@ -1,10 +1,19 @@
 
 import Foundation
+import SwiftUI
+import Combine
 
 
 
-class OrdersStore {
+class OrdersStore: BindableObject {
     
+    let didChange = PassthroughSubject<OrdersStore, Never>()
     
-    var orders: [Order] = []
+    var orders: [Order] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.didChange.send(self)
+            }
+        }
+    }
 }

@@ -3,8 +3,8 @@ import SwiftUI
 
 
 struct OrdersListView : View {
-    
-    var orders: [Order]
+
+    @EnvironmentObject var ordersStore: OrdersStore
     @State var showOnlyNotCompleted = false
     
     var body: some View {
@@ -13,7 +13,7 @@ struct OrdersListView : View {
                 Text("Show only not completed")
             }
             List {
-                ForEach(orders.reversed()) { order in
+                ForEach(ordersStore.orders.reversed()) { order in
                     if order.status != .completed || !self.showOnlyNotCompleted {
                         OrderRowView(order: order)
                     }
@@ -26,8 +26,9 @@ struct OrdersListView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        OrdersListView(orders: testOrders)
+        OrdersListView()
             .environment(\.locale, Locale(identifier: "fr-FR"))
+            .environmentObject(appController.ordersStore)
     }
 }
 #endif

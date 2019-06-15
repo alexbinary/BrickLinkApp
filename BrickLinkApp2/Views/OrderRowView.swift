@@ -34,7 +34,7 @@ struct OrderRowView_Previews : PreviewProvider {
     
     static var statuses: [OrderStatus] {
         return OrderStatus.allCases.filter { status in
-            testOrders.last(where: { order in
+            testOrdersStore.orders.last(where: { order in
                 order.status == status
             }) != nil
         }
@@ -43,7 +43,7 @@ struct OrderRowView_Previews : PreviewProvider {
     static var previews: some View {
         Group {
             ForEach(0..<statuses.count) { index in
-                OrderRowView(order: testOrders.last(where: { $0.status == statuses[index] })!)
+                OrderRowView(order: testOrdersStore.orders.last(where: { $0.status == statuses[index] })!)
             }
         }
             .previewLayout(.sizeThatFits)

@@ -31,10 +31,19 @@ struct OrderRowView : View {
 
 #if DEBUG
 struct OrderRowView_Previews : PreviewProvider {
+    
+    static var statuses: [OrderStatus] {
+        return OrderStatus.allCases.filter { status in
+            testOrders.last(where: { order in
+                order.status == status
+            }) != nil
+        }
+    }
+    
     static var previews: some View {
         Group {
-            ForEach(0..<OrderStatus.allCases.count) { index in
-                OrderRowView(order: testOrders.last(where: { $0.status == OrderStatus.allCases[index] })!)
+            ForEach(0..<statuses.count) { index in
+                OrderRowView(order: testOrders.last(where: { $0.status == statuses[index] })!)
             }
         }
             .previewLayout(.sizeThatFits)
@@ -47,7 +56,8 @@ let statusColors = [
     OrderStatus.completed: Color.green,
     OrderStatus.shipped: Color.blue,
     OrderStatus.received: Color.orange,
-    OrderStatus.paid: Color.red
+    OrderStatus.paid: Color.red,
+    OrderStatus.packed: Color.gray
 ]
 
 struct OrderStatusView : View {

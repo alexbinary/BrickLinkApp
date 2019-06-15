@@ -73,6 +73,7 @@ enum OrderStatus: String, Decodable {
     case shipped = "SHIPPED"
     case received = "RECEIVED"
     case paid = "PAID"
+    case packed = "PACKED"
 }
 
 struct Shipping: Decodable {

@@ -8,13 +8,13 @@ import Combine
 class OrdersStore: BindableObject {
 
     
-    let didChange = PassthroughSubject<OrdersStore, Never>()
+    let didChange = PassthroughSubject<Void, Never>()
     
     
     var orders: [Order] = [] {
         didSet {
             DispatchQueue.main.async {
-                self.didChange.send(self)
+                self.didChange.send(())
             }
         }
     }

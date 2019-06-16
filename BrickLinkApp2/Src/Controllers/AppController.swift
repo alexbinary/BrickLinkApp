@@ -8,7 +8,7 @@ import Combine
 class AppController: BindableObject {
     
     
-    let didChange = PassthroughSubject<AppController, Never>()
+    let didChange = PassthroughSubject<Void, Never>()
 
 
     let brickLinkAPIClient: BrickLinkAPIClient

@@ -31,6 +31,18 @@ enum ItemType: String, Codable {
 enum ColorId: Int, Codable {
     
     case blue = 7
+    case red = 5
+    
+    var name: String {
+        
+        switch self {
+            
+        case .blue:
+            return "blue"
+        case .red:
+            return "red"
+        }
+    }
 }
 
 

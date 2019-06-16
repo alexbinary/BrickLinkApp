@@ -45,13 +45,13 @@ class AppController: BindableObject {
         print(inventory)
         
         return Publishers.Future<Void, Never> { promise in
-        
+
             let timer = Timer(timeInterval: 2, repeats: false, block: { timer in
                 promise(.success(()))
             })
             RunLoop.main.add(timer, forMode: .default)
         }
-        
+
         .eraseToAnyPublisher()
         
         return Publishers.Future<Void, Never> { promise in

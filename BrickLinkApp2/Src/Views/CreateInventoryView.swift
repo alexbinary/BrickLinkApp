@@ -21,6 +21,7 @@ struct CreateInventoryView : View {
     @State var itemNo: String = ""
     @State var itemUnitPrice: String = ""
     @State var itemQuantity: String = ""
+    @State var itemColor: ColorId = .blue
     
     var currentInventory: Inventory {
         
@@ -30,7 +31,7 @@ struct CreateInventoryView : View {
                 type: .part,
                 no: itemNo
             ),
-            colorId: .blue,
+            colorId: itemColor,
             quantity: Int(itemQuantity)!,
             unitPrice: FixedPointNumber(Float(itemUnitPrice)!),
             newOrUsed: .used,
@@ -53,6 +54,14 @@ struct CreateInventoryView : View {
                         TextField($itemNo, placeholder: Text("93274"))
                     }
                     
+                    Picker(selection: $itemColor, label: Text("Color")) {
+//                        ForEach(ColorId.allCases) { colorId in
+//                            Text(colorId.rawValue).tag(colorId)
+//                        }
+                        Text("blue").tag(ColorId.blue)
+                        Text("red").tag(ColorId.red)
+                    }
+                
                     HStack {
                         Text("Quantity")
                         Spacer()

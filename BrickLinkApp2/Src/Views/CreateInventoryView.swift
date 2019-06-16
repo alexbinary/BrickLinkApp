@@ -18,8 +18,9 @@ struct CreateInventoryView : View {
     var isRunning: Bool { viewState == .running }
     var isDone: Bool { viewState == .done }
     
-    @State var itemNo: String = "93274"
-    @State var itemUnitPrice: String = "0"
+    @State var itemNo: String = ""
+    @State var itemUnitPrice: String = ""
+    @State var itemQuantity: String = ""
     
     var currentInventory: Inventory {
         
@@ -30,7 +31,7 @@ struct CreateInventoryView : View {
                 no: itemNo
             ),
             colorId: .blue,
-            quantity: 1,
+            quantity: Int(itemQuantity)!,
             unitPrice: FixedPointNumber(Float(itemUnitPrice)!),
             newOrUsed: .used,
             isRetain: true,
@@ -49,13 +50,20 @@ struct CreateInventoryView : View {
                     HStack {
                         Text("Item number")
                         Spacer()
-                        TextField($itemNo)
+                        TextField($itemNo, placeholder: Text("93274"))
+                    }
+                    
+                    HStack {
+                        Text("Quantity")
+                        Spacer()
+                        TextField($itemQuantity, placeholder: Text("42"))
                     }
                     
                     HStack {
                         Text("Unit price")
                         Spacer()
-                        TextField($itemUnitPrice)
+                        TextField($itemUnitPrice, placeholder: Text("0.24"))
+                        Text("€")
                     }
                 }
                     .multilineTextAlignment(.trailing)

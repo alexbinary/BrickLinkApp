@@ -100,17 +100,14 @@
 		290F75E622AD63E3007B74BD /* BrickLinkApp2 */ = {
 			isa = PBXGroup;
 			children = (
-				29C2F0F422B5397B008FB0F8 /* Controllers */,
-				29EAF43C22B42C4400CABFF6 /* Views */,
-				290881A622B363A20084BA1B /* BrickLink */,
+				290F75F522AD63E7007B74BD /* Info.plist */,
 				290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */,
-				290F75E722AD63E3007B74BD /* AppDelegate.swift */,
-				290F75E922AD63E3007B74BD /* SceneDelegate.swift */,
 				290F75ED22AD63E7007B74BD /* Assets.xcassets */,
 				290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */,
-				290F75F522AD63E7007B74BD /* Info.plist */,
-				290F75EF22AD63E7007B74BD /* Preview Content */,
 				2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */,
+				2990562F22B6C9E6000FDACC /* Src */,
+				290881A622B363A20084BA1B /* BrickLink */,
+				290F75EF22AD63E7007B74BD /* Preview Content */,
 			);
 			path = BrickLinkApp2;
 			sourceTree = "<group>";
@@ -123,6 +120,17 @@
 				29EAF43F22B42CD200CABFF6 /* data.swift */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2990562F22B6C9E6000FDACC /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				290F75E722AD63E3007B74BD /* AppDelegate.swift */,
+				290F75E922AD63E3007B74BD /* SceneDelegate.swift */,
+				29C2F0F422B5397B008FB0F8 /* Controllers */,
+				29EAF43C22B42C4400CABFF6 /* Views */,
+			);
+			path = Src;
 			sourceTree = "<group>";
 		};
 		29C2F0EF22B52BE2008FB0F8 /* Models */ = {

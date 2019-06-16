@@ -15,6 +15,9 @@ struct CreateInventoryView : View {
     
     @State var viewState: ViewState = .initial
     
+    var isRunning: Bool { viewState == .running }
+    var isDone: Bool { viewState == .done }
+    
     @State var itemNo: String = "93274"
     @State var itemUnitPrice: String = "0"
     
@@ -39,31 +42,45 @@ struct CreateInventoryView : View {
       
         NavigationView {
         
-            VStack {
+            List {
         
-                HStack {
-                    Text("Item number")
-                    TextField($itemNo)
-                }
+                Section {
                 
-                HStack {
-                    Text("Unit price")
-                    TextField($itemUnitPrice)
+                    HStack {
+                        Text("Item number")
+                        Spacer()
+                        TextField($itemNo)
+                    }
+                    
+                    HStack {
+                        Text("Unit price")
+                        Spacer()
+                        TextField($itemUnitPrice)
+                    }
                 }
+                    .multilineTextAlignment(.trailing)
                 
-                Button(action: {
-                    self.viewState = .running
-                    _ = self.appController.create(self.currentInventory)
-                        .sink {
-                            self.viewState = .done
-                        }
-                }) {
-                    viewState == .initial ? Text("Create Inventory") : ( viewState == .running ? Text("") : Text("Inventory created!"))
-                }
-                if viewState == .running {
-                    Text("Loading")
+                Section {
+                
+                    Button(action: {
+                        self.viewState = .running
+                        _ = self.appController.create(self.currentInventory)
+                            .sink {
+                                self.viewState = .done
+                            }
+                    }) {
+                        Text("Create Inventory")
+                    }
+                    if isRunning {
+                        Text("Loading")
+                    }
+                    if isDone {
+                        Text("Inventory created!")
+                        
+                    }
                 }
             }
+                .listStyle(.grouped)
                 .navigationBarTitle(Text("My Inventory"))
         }
     }

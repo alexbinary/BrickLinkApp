@@ -40,7 +40,9 @@ class AppController: BindableObject {
         .eraseToAnyPublisher()
     }
     
-    @discardableResult func createInventory(itemNo: String) -> AnyPublisher<Void, Never> {
+    @discardableResult func create(_ inventory: Inventory) -> AnyPublisher<Void, Never> {
+        
+        print(inventory)
         
         return Publishers.Future<Void, Never> { promise in
         
@@ -51,20 +53,6 @@ class AppController: BindableObject {
         }
         
         .eraseToAnyPublisher()
-        
-        let inventory = Inventory(
-            
-            item: InventoryItem(
-                type: .part,
-                no: itemNo
-            ),
-            colorId: .blue,
-            quantity: 1,
-            unitPrice: 0.24,
-            newOrUsed: .used,
-            isRetain: true,
-            isStockRoom: true
-        )
         
         return Publishers.Future<Void, Never> { promise in
         

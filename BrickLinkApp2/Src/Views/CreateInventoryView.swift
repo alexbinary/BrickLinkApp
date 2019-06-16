@@ -14,7 +14,26 @@ struct CreateInventoryView : View {
     }
     
     @State var viewState: ViewState = .initial
+    
     @State var itemNo: String = "93274"
+    @State var itemUnitPrice: String = "0"
+    
+    var currentInventory: Inventory {
+        
+        Inventory(
+            
+            item: InventoryItem(
+                type: .part,
+                no: itemNo
+            ),
+            colorId: .blue,
+            quantity: 1,
+            unitPrice: FixedPointNumber(Float(itemUnitPrice)!),
+            newOrUsed: .used,
+            isRetain: true,
+            isStockRoom: true
+        )
+    }
     
     var body: some View {
       
@@ -27,9 +46,14 @@ struct CreateInventoryView : View {
                     TextField($itemNo)
                 }
                 
+                HStack {
+                    Text("Unit price")
+                    TextField($itemUnitPrice)
+                }
+                
                 Button(action: {
                     self.viewState = .running
-                    _ = self.appController.createInventory(itemNo: self.itemNo)
+                    _ = self.appController.create(self.currentInventory)
                         .sink {
                             self.viewState = .done
                         }

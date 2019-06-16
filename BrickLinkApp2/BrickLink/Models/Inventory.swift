@@ -49,6 +49,10 @@ struct FixedPointNumber: Codable, ExpressibleByFloatLiteral {
         self.floatValue = value
     }
     
+    init(_ float: Float) {
+        self.floatValue = float
+    }
+    
     
     var floatValue: Float
     

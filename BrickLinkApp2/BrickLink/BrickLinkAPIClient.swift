@@ -16,7 +16,7 @@ struct BrickLinkAPIClient {
     }
     
     
-    func getMyOrdersReceived() -> Publishers.Future<[Order], Never> {
+    func getMyOrdersReceived() -> AnyPublisher<[Order], Never> {
         
         let url = URL(string: "https://api.bricklink.com/api/store/v1/orders?direction=in")!
         
@@ -24,19 +24,20 @@ struct BrickLinkAPIClient {
         
         request.authenticate(with: credentials)
         
-        return Publishers.Future<[Order], Never> { promise in
+        return getResponse(for: request)
+        
+            .map { (response: APIResponse<[Order]>) in
             
-            self.getResponse(for: request) { (response: APIResponse<[Order]>) in
-                
                 let orders = response.data
                 
-                promise(.success(orders))
+                return orders
             }
-        }
+        
+            .eraseToAnyPublisher()
     }
     
     
-    func create(_ inventory: Inventory, completionHandler: @escaping (Inventory) -> Void) {
+    func create(_ inventory: Inventory) -> AnyPublisher<Inventory, Never> {
         
         let url = URL(string: "https://api.bricklink.com/api/store/v1/inventories")!
         
@@ -49,24 +50,35 @@ struct BrickLinkAPIClient {
         
         request.authenticate(with: credentials)
         
-        getResponse(for: request) { (response: APIResponse<Inventory>) in
+        return getResponse(for: request)
+        
+            .map { (response: APIResponse<Inventory>) in
+                
+                let inventory = response.data
+                
+                return inventory
+            }
             
-            let inventory = response.data
-            
-            completionHandler(inventory)
-        }
+            .eraseToAnyPublisher()
     }
     
     
-    func getResponse<T>(for request: URLRequest, completionHandler: @escaping (T) -> Void) where T: Decodable {
+    func getResponse<T>(for request: URLRequest) -> AnyPublisher<T, Never> where T: Decodable {
         
-        URLSession(configuration: .default).dataTask (with: request) { (data, response, error) in
+        return Publishers.Future<T, Never> { promise in
+        
+            URLSession(configuration: .default).dataTask (with: request) { (data, response, error) in
+                
+                print(String(data: data!, encoding: .utf8)!)
+                
+                let decoded: T = data!.decode()
+                
+                promise(.success(decoded))
+                
+            } .resume()
+        }
             
-            print(String(data: data!, encoding: .utf8)!)
-            
-            completionHandler(data!.decode())
-            
-        } .resume()
+        .eraseToAnyPublisher()
     }
 }
 

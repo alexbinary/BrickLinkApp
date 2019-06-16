@@ -23,14 +23,21 @@ class AppController: BindableObject {
     }
 
     
-    func loadOrders(completionHandler: @escaping () -> Void) {
+    @discardableResult func loadOrders() -> AnyPublisher<Void, Never> {
         
-        _ = brickLinkAPIClient.getMyOrdersReceived()
+        return Publishers.Future<Void, Never> { promise in
             
-            .sink { orders in
-                
-                self.ordersStore.orders = orders
-            }
+            _ = self.brickLinkAPIClient.getMyOrdersReceived()
+            
+                .sink { orders in
+                    
+                    self.ordersStore.orders = orders
+                    
+                    promise(.success(()))
+                }
+        }
+        
+        .eraseToAnyPublisher()
     }
     
     func createInventory(itemNo: String, completionHandler: @escaping () -> Void) {
@@ -56,12 +63,14 @@ class AppController: BindableObject {
             isStockRoom: true
         )
         
-        brickLinkAPIClient.create(inventory) { createdInventory in
+        _ = brickLinkAPIClient.create(inventory)
+        
+            .sink { createdInventory in
             
-            print(createdInventory)
+                print(createdInventory)
             
-            completionHandler()
-        }
+                completionHandler()
+            }
     }
     
     

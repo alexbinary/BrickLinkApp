@@ -18,6 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         )
         window!.makeKeyAndVisible()
         
-        appController.loadOrders { }
+        appController.loadOrders()
     }
 }

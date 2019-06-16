@@ -25,12 +25,12 @@ class AppController: BindableObject {
     
     func loadOrders(completionHandler: @escaping () -> Void) {
         
-        brickLinkAPIClient.getMyOrdersReceived { orders in
+        _ = brickLinkAPIClient.getMyOrdersReceived()
             
-            self.ordersStore.orders = orders
-            
-            completionHandler()
-        }
+            .sink { orders in
+                
+                self.ordersStore.orders = orders
+            }
     }
     
     func createInventory(itemNo: String, completionHandler: @escaping () -> Void) {

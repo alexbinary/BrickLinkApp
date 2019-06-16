@@ -1,5 +1,6 @@
 
 import Foundation
+import Combine
 
 
 
@@ -15,7 +16,7 @@ struct BrickLinkAPIClient {
     }
     
     
-    func getMyOrdersReceived(completionHandler: @escaping ([Order]) -> Void) {
+    func getMyOrdersReceived() -> Publishers.Future<[Order], Never> {
         
         let url = URL(string: "https://api.bricklink.com/api/store/v1/orders?direction=in")!
         
@@ -23,11 +24,14 @@ struct BrickLinkAPIClient {
         
         request.authenticate(with: credentials)
         
-        getResponse(for: request) { (response: APIResponse<[Order]>) in
+        return Publishers.Future<[Order], Never> { promise in
             
-            let orders = response.data
-            
-            completionHandler(orders)
+            self.getResponse(for: request) { (response: APIResponse<[Order]>) in
+                
+                let orders = response.data
+                
+                promise(.success(orders))
+            }
         }
     }
     

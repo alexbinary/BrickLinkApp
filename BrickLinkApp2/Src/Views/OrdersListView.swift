@@ -7,7 +7,7 @@ struct OrdersListView : View {
 
     @EnvironmentObject var ordersStore: OrdersStore
     
-    @State var showOnlyNotCompleted = true 
+    @State var showOnlyNotCompleted = true
     
     var body: some View {
 

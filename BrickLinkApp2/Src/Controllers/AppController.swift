@@ -40,14 +40,17 @@ class AppController: BindableObject {
         .eraseToAnyPublisher()
     }
     
-    func createInventory(itemNo: String, completionHandler: @escaping () -> Void) {
+    @discardableResult func createInventory(itemNo: String) -> AnyPublisher<Void, Never> {
         
-        let timer = Timer(timeInterval: 2, repeats: false, block: { timer in
-            completionHandler()
-        })
-        RunLoop.main.add(timer, forMode: .default)
-
-        return
+        return Publishers.Future<Void, Never> { promise in
+        
+            let timer = Timer(timeInterval: 2, repeats: false, block: { timer in
+                promise(.success(()))
+            })
+            RunLoop.main.add(timer, forMode: .default)
+        }
+        
+        .eraseToAnyPublisher()
         
         let inventory = Inventory(
             
@@ -63,14 +66,19 @@ class AppController: BindableObject {
             isStockRoom: true
         )
         
-        _ = brickLinkAPIClient.create(inventory)
+        return Publishers.Future<Void, Never> { promise in
         
-            .sink { createdInventory in
+            _ = self.brickLinkAPIClient.create(inventory)
             
-                print(createdInventory)
-            
-                completionHandler()
-            }
+                .sink { createdInventory in
+                
+                    print(createdInventory)
+                
+                    promise(.success(()))
+                }
+        }
+        
+        .eraseToAnyPublisher()
     }
     
     

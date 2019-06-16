@@ -29,9 +29,10 @@ struct CreateInventoryView : View {
                 
                 Button(action: {
                     self.viewState = .running
-                    self.appController.createInventory(itemNo: self.itemNo) {
-                       self.viewState = .done
-                    }
+                    _ = self.appController.createInventory(itemNo: self.itemNo)
+                        .sink {
+                            self.viewState = .done
+                        }
                 }) {
                     viewState == .initial ? Text("Create Inventory") : ( viewState == .running ? Text("") : Text("Inventory created!"))
                 }

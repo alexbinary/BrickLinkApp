@@ -8,7 +8,7 @@ struct Inventory: Codable {
     let item: InventoryItem
     let colorId: ColorId
     let quantity: Int
-    let unitPrice: FixedPointNumber
+    var unitPrice: FixedPointNumber
     let newOrUsed: ItemCondition
     let isRetain: Bool
     let isStockRoom: Bool

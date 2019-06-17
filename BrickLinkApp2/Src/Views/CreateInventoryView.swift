@@ -18,9 +18,9 @@ struct CreateInventoryView : View {
     var isRunning: Bool { viewState == .running }
     var isDone: Bool { viewState == .done }
     
-    @State var itemNo: String = ""
-    @State var itemUnitPrice: String = ""
-    @State var itemQuantity: String = ""
+    @State var itemNo: String = "93274"
+    @State var itemUnitPrice: String = "0.1"
+    @State var itemQuantity: String = "42"
     @State var itemColor: ColorId = .blue
     @State var itemDescription: String = ""
     

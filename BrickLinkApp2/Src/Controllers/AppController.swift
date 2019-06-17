@@ -44,25 +44,36 @@ class AppController: BindableObject {
         
         print(inventory)
         
-//        return Publishers.Future<Void, Never> { promise in
-//
-//            let timer = Timer(timeInterval: 2, repeats: false, block: { timer in
-//                promise(.success(()))
-//            })
-//            RunLoop.main.add(timer, forMode: .default)
-//        }
-//
-//        .eraseToAnyPublisher()
+        return Publishers.Future<Void, Never> { promise in
+
+            let timer = Timer(timeInterval: 2, repeats: false, block: { timer in
+                promise(.success(()))
+            })
+            RunLoop.main.add(timer, forMode: .default)
+        }
+
+        .eraseToAnyPublisher()
         
         return Publishers.Future<Void, Never> { promise in
-        
-            _ = self.brickLinkAPIClient.create(inventory)
             
-                .sink { createdInventory in
+            _ = self.brickLinkAPIClient.getPriceGuide(itemNo: "93274", colorId: .blue)
                 
-                    print(createdInventory)
-                
-                    promise(.success(()))
+                .sink { priceGuide in
+                    
+                    var inv = inventory
+                    
+                    inv.unitPrice = priceGuide.avgPrice
+                    
+                    print(inv)
+                    
+                    _ = self.brickLinkAPIClient.create(inv)
+                        
+                        .sink { createdInventory in
+                            
+                            print(createdInventory)
+                            
+                            promise(.success(()))
+                        }
                 }
         }
         

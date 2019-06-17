@@ -63,6 +63,27 @@ struct BrickLinkAPIClient {
     }
     
     
+    func getPriceGuide(itemNo: String, colorId: ColorId) -> AnyPublisher<PriceGuide, Never> {
+        
+        let url = URL(string: "https://api.bricklink.com/api/store/v1/items/PART/\(itemNo)/price?color_id=\(colorId.rawValue)&guide_type=sold&new_or_used=U&currency_code=EUR")!
+        
+        var request = URLRequest(url: url)
+        
+        request.authenticate(with: credentials)
+        
+        return getResponse(for: request)
+            
+            .map { (response: APIResponse<PriceGuide>) in
+                
+                let priceGuide = response.data
+                
+                return priceGuide
+            }
+            
+            .eraseToAnyPublisher()
+    }
+    
+    
     func getResponse<T>(for request: URLRequest) -> AnyPublisher<T, Never> where T: Decodable {
         
         return Publishers.Future<T, Never> { promise in

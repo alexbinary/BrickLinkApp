@@ -64,6 +64,7 @@ struct CreateInventoryView : View {
 //                        }
                         Text("blue").tag(ColorId.blue)
                         Text("red").tag(ColorId.red)
+                        Text("black").tag(ColorId.black)
                     }
                 
                     HStack {

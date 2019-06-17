@@ -33,6 +33,7 @@ enum ColorId: Int, Codable {
     
     case blue = 7
     case red = 5
+    case black = 11
     
     var name: String {
         
@@ -42,6 +43,8 @@ enum ColorId: Int, Codable {
             return "blue"
         case .red:
             return "red"
+        case .black:
+            return "black"
         }
     }
 }

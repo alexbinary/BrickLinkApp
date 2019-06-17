@@ -23,6 +23,7 @@ struct CreateInventoryView : View {
     @State var itemQuantity: String = "42"
     @State var itemColor: ColorId = .blue
     @State var itemDescription: String = ""
+    @State var isStockroom = true
     
     @State var autoPrice: Bool = true
     
@@ -39,10 +40,22 @@ struct CreateInventoryView : View {
             unitPrice: FixedPointNumber(autoPrice ? 0 : Float(itemUnitPrice)!),
             newOrUsed: .used,
             isRetain: true,
-            isStockRoom: true,
+            isStockRoom: isStockroom,
             description: itemDescription
         )
     }
+    
+//    var colors: [ColorId: String] = [
+//    
+//        .white: "White",
+//        .yellow: "Yellow",
+//        .red:  "Red",
+//        .blue: "Blue",
+//        .lightGray: "Light Gray",
+//        .black: "Black",
+//        .darkBluishGray: "Dark Bluish Gray",
+//        .lightBluishGray: "Light Bluish Gray",
+//    ]
     
     var body: some View {
       
@@ -59,12 +72,17 @@ struct CreateInventoryView : View {
                     }
                     
                     Picker(selection: $itemColor, label: Text("Color")) {
-//                        ForEach(ColorId.allCases) { colorId in
-//                            Text(colorId.rawValue).tag(colorId)
+//                        ForEach(colors) { (colorId, name) in
+//                            Text(name).tag(colorId)
 //                        }
-                        Text("blue").tag(ColorId.blue)
-                        Text("red").tag(ColorId.red)
-                        Text("black").tag(ColorId.black)
+                        Text("White").tag(ColorId.white)
+                        Text("Yellow").tag(ColorId.yellow)
+                        Text("Red").tag(ColorId.red)
+                        Text("Blue").tag(ColorId.blue)
+                        Text("Light Gray").tag(ColorId.lightGray)
+                        Text("Black").tag(ColorId.black)
+                        Text("Dark Bluish Gray").tag(ColorId.darkBluishGray)
+                        Text("Light Bluish Gray").tag(ColorId.lightBluishGray)
                     }
                 
                     HStack {
@@ -87,6 +105,10 @@ struct CreateInventoryView : View {
                             TextField($itemUnitPrice, placeholder: Text("0.24"))
                             Text("€")
                         }
+                    }
+                    
+                    Toggle(isOn: $isStockroom) {
+                        Text("Stockroom")
                     }
                     
                     TextField($itemDescription, placeholder: Text("Description"))

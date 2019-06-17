@@ -31,20 +31,35 @@ enum ItemType: String, Codable {
 
 enum ColorId: Int, Codable {
     
-    case blue = 7
+    case white = 1
+    case yellow = 3
     case red = 5
+    case blue = 7
+    case lightGray = 9
     case black = 11
+    case darkBluishGray = 85
+    case lightBluishGray = 86
     
     var name: String {
         
         switch self {
             
-        case .blue:
-            return "blue"
+        case .white:
+            return "White"
+        case .yellow:
+            return "Yellow"
         case .red:
-            return "red"
+            return "Red"
+        case .blue:
+            return "Blue"
+        case .lightGray:
+            return "Light Gray"
         case .black:
-            return "black"
+            return "Black"
+        case .darkBluishGray:
+            return "Dark Bluish Gray"
+        case .lightBluishGray:
+            return "Light Bluish Gray"
         }
     }
 }

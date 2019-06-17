@@ -24,6 +24,8 @@ struct CreateInventoryView : View {
     @State var itemColor: ColorId = .blue
     @State var itemDescription: String = ""
     
+    @State var autoPrice: Bool = true
+    
     var currentInventory: Inventory {
         
         Inventory(
@@ -34,7 +36,7 @@ struct CreateInventoryView : View {
             ),
             colorId: itemColor,
             quantity: Int(itemQuantity)!,
-            unitPrice: FixedPointNumber(Float(itemUnitPrice)!),
+            unitPrice: FixedPointNumber(autoPrice ? 0 : Float(itemUnitPrice)!),
             newOrUsed: .used,
             isRetain: true,
             isStockRoom: true,
@@ -73,8 +75,17 @@ struct CreateInventoryView : View {
                     HStack {
                         Text("Unit price")
                         Spacer()
-                        TextField($itemUnitPrice, placeholder: Text("0.24"))
-                        Text("€")
+                        Toggle(isOn: $autoPrice) {
+                            Text("auto")
+                        }
+                    }
+                    
+                    if !autoPrice {
+                        HStack {
+                            Spacer()
+                            TextField($itemUnitPrice, placeholder: Text("0.24"))
+                            Text("€")
+                        }
                     }
                     
                     TextField($itemDescription, placeholder: Text("Description"))
@@ -85,7 +96,7 @@ struct CreateInventoryView : View {
                 
                     Button(action: {
                         self.viewState = .running
-                        _ = self.appController.create(self.currentInventory)
+                        _ = self.appController.create(self.currentInventory, self.autoPrice)
                             .sink {
                                 self.viewState = .done
                             }

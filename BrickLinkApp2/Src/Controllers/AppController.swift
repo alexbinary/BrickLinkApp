@@ -40,10 +40,10 @@ class AppController: BindableObject {
         .eraseToAnyPublisher()
     }
     
-    @discardableResult func create(_ inventory: Inventory) -> AnyPublisher<Void, Never> {
+    @discardableResult func create(_ inventory: Inventory, _ autoPrice: Bool) -> AnyPublisher<Void, Never> {
         
         print(inventory)
-        
+
         return Publishers.Future<Void, Never> { promise in
 
             let timer = Timer(timeInterval: 2, repeats: false, block: { timer in
@@ -62,7 +62,10 @@ class AppController: BindableObject {
                     
                     var inv = inventory
                     
-                    inv.unitPrice = priceGuide.avgPrice
+                    if autoPrice {
+                    
+                        inv.unitPrice = priceGuide.avgPrice
+                    }
                     
                     print(inv)
                     

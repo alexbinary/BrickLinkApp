@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environmentObject(appController.ordersStore)
         )
         window!.makeKeyAndVisible()
+        window?.tintColor = .systemYellow
         
         appController.loadOrders()
     }

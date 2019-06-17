@@ -28,6 +28,8 @@ struct MainView_Previews : PreviewProvider {
         
         MainView()
             .environmentObject(dummyOrdersStore)
+            .environmentObject(appController)
+            .environment(\.colorScheme, .dark)
     }
 }
 

@@ -12,6 +12,7 @@ struct Inventory: Codable {
     let newOrUsed: ItemCondition
     let isRetain: Bool
     let isStockRoom: Bool
+    let description: String
 }
 
 

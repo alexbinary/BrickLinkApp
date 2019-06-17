@@ -22,6 +22,7 @@ struct CreateInventoryView : View {
     @State var itemUnitPrice: String = ""
     @State var itemQuantity: String = ""
     @State var itemColor: ColorId = .blue
+    @State var itemDescription: String = ""
     
     var currentInventory: Inventory {
         
@@ -36,7 +37,8 @@ struct CreateInventoryView : View {
             unitPrice: FixedPointNumber(Float(itemUnitPrice)!),
             newOrUsed: .used,
             isRetain: true,
-            isStockRoom: true
+            isStockRoom: true,
+            description: itemDescription
         )
     }
     
@@ -74,6 +76,8 @@ struct CreateInventoryView : View {
                         TextField($itemUnitPrice, placeholder: Text("0.24"))
                         Text("€")
                     }
+                    
+                    TextField($itemDescription, placeholder: Text("Description"))
                 }
                     .multilineTextAlignment(.trailing)
                 

@@ -48,7 +48,7 @@ struct CreateInventoryView : View {
     }
     
 //    var colors: [ColorId: String] = [
-//    
+//
 //        .white: "White",
 //        .yellow: "Yellow",
 //        .red:  "Red",
@@ -142,6 +142,17 @@ struct CreateInventoryView : View {
                         Text("Inventory created!")
                         
                     }
+                }
+                
+                Section {
+                    
+                    Text("")
+                    Text("")
+                    Text("")
+                    Text("")
+                    Text("")
+                    Text("")
+                    Text("")
                 }
             }
                 .listStyle(.grouped)

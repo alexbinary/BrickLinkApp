@@ -24,6 +24,7 @@ struct CreateInventoryView : View {
     @State var itemColor: ColorId = .blue
     @State var itemDescription: String = ""
     @State var isStockroom = true
+    @State var saleRate: String = "50"
     
     @State var autoPrice: Bool = true
     
@@ -41,7 +42,8 @@ struct CreateInventoryView : View {
             newOrUsed: .used,
             isRetain: true,
             isStockRoom: isStockroom,
-            description: itemDescription
+            description: itemDescription,
+            saleRate: Int(saleRate)!
         )
     }
     
@@ -105,6 +107,13 @@ struct CreateInventoryView : View {
                             TextField($itemUnitPrice, placeholder: Text("0.24"))
                             Text("€")
                         }
+                    }
+                    
+                    HStack {
+                        Text("Sale")
+                        Spacer()
+                        TextField($saleRate, placeholder: Text("50"))
+                        Text("%")
                     }
                     
                     Toggle(isOn: $isStockroom) {

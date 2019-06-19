@@ -40,6 +40,11 @@ class AppController: BindableObject {
         .eraseToAnyPublisher()
     }
     
+    @discardableResult func getPriceGuide(itemNo: String, colorId: ColorId) -> AnyPublisher<PriceGuide, Never> {
+        
+        return self.brickLinkAPIClient.getPriceGuide(itemNo: itemNo, colorId: colorId)
+    }
+    
     @discardableResult func create(_ inventory: Inventory, _ autoPrice: Bool) -> AnyPublisher<Void, Never> {
         
         print(inventory)

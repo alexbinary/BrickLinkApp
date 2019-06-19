@@ -27,6 +27,7 @@ struct CreateInventoryView : View {
     @State var saleRate: String = "50"
     
     @State var autoPrice: Bool = true
+    @State var priceGuidePrice: Float = 0
     
     var currentInventory: Inventory {
         
@@ -103,6 +104,15 @@ struct CreateInventoryView : View {
                     
                     if !autoPrice {
                         HStack {
+                            Button(action: {
+                                _ = self.appController.getPriceGuide(itemNo: self.itemNo, colorId: self.itemColor)
+                                    .sink { priceGuide in
+                                        self.priceGuidePrice = priceGuide.avgPrice.floatValue
+                                    }
+                            }) {
+                                Text("Price guide")
+                            }
+                            Text("\(priceGuidePrice)")
                             Spacer()
                             TextField($itemUnitPrice, placeholder: Text("0.24"))
                             Text("€")

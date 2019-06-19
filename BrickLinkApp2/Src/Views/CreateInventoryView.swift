@@ -21,13 +21,15 @@ struct CreateInventoryView : View {
     @State var itemNo: String = "93274"
     @State var itemUnitPrice: String = "0.1"
     @State var itemQuantity: String = "42"
-    @State var itemColor: ColorId = .blue
+    @State var itemColorRawValue: Int = ColorId.blue.rawValue
     @State var itemDescription: String = ""
     @State var isStockroom = true
     @State var saleRate: String = "50"
     
     @State var autoPrice: Bool = true
     @State var priceGuidePrice: Float = 0
+    
+    var itemColor: ColorId { ColorId(rawValue: itemColorRawValue)! }
     
     var currentInventory: Inventory {
         
@@ -48,17 +50,29 @@ struct CreateInventoryView : View {
         )
     }
     
-//    var colors: [ColorId: String] = [
-//
-//        .white: "White",
-//        .yellow: "Yellow",
-//        .red:  "Red",
-//        .blue: "Blue",
-//        .lightGray: "Light Gray",
-//        .black: "Black",
-//        .darkBluishGray: "Dark Bluish Gray",
-//        .lightBluishGray: "Light Bluish Gray",
-//    ]
+    var colors: [ColorId: String] = [
+
+        .white: "White",
+        .yellow: "Yellow",
+        .red:  "Red",
+        .blue: "Blue",
+        .lightGray: "Light Gray",
+        .black: "Black",
+        .darkBluishGray: "Dark Bluish Gray",
+        .lightBluishGray: "Light Bluish Gray",
+    ]
+    var colorList: [Int] = [
+        
+        ColorId.white,
+        ColorId.yellow,
+        ColorId.red,
+        ColorId.blue,
+        ColorId.lightGray,
+        ColorId.black,
+        ColorId.darkBluishGray,
+        ColorId.lightBluishGray,
+        
+    ] .map { $0.rawValue }
     
     var body: some View {
       
@@ -74,18 +88,10 @@ struct CreateInventoryView : View {
                         TextField($itemNo, placeholder: Text("93274"))
                     }
                     
-                    Picker(selection: $itemColor, label: Text("Color")) {
-//                        ForEach(colors) { (colorId, name) in
-//                            Text(name).tag(colorId)
-//                        }
-                        Text("White").tag(ColorId.white)
-                        Text("Yellow").tag(ColorId.yellow)
-                        Text("Red").tag(ColorId.red)
-                        Text("Blue").tag(ColorId.blue)
-                        Text("Light Gray").tag(ColorId.lightGray)
-                        Text("Black").tag(ColorId.black)
-                        Text("Dark Bluish Gray").tag(ColorId.darkBluishGray)
-                        Text("Light Bluish Gray").tag(ColorId.lightBluishGray)
+                    Picker(selection: $itemColorRawValue, label: Text("Color")) {
+                        ForEach(colorList) { i in
+                            Text(self.colors[ColorId(rawValue: i)!]!).tag(i)
+                        }
                     }
                 
                     HStack {

@@ -63,9 +63,9 @@ struct BrickLinkAPIClient {
     }
     
     
-    func getPriceGuide(itemNo: String, colorId: ColorId) -> AnyPublisher<PriceGuide, Never> {
+    func getPriceGuide(itemNo: String, colorId: Int) -> AnyPublisher<PriceGuide, Never> {
         
-        let url = URL(string: "https://api.bricklink.com/api/store/v1/items/PART/\(itemNo)/price?color_id=\(colorId.rawValue)&guide_type=sold&new_or_used=U&currency_code=EUR")!
+        let url = URL(string: "https://api.bricklink.com/api/store/v1/items/PART/\(itemNo)/price?color_id=\(colorId)&guide_type=sold&new_or_used=U&currency_code=EUR")!
         
         var request = URLRequest(url: url)
         
@@ -78,6 +78,27 @@ struct BrickLinkAPIClient {
                 let priceGuide = response.data
                 
                 return priceGuide
+            }
+            
+            .eraseToAnyPublisher()
+    }
+    
+    
+    func getColorList() -> AnyPublisher<[BrickLinkColor], Never> {
+        
+        let url = URL(string: "https://api.bricklink.com/api/store/v1/colors")!
+        
+        var request = URLRequest(url: url)
+        
+        request.authenticate(with: credentials)
+        
+        return getResponse(for: request)
+            
+            .map { (response: APIResponse<[BrickLinkColor]>) in
+                
+                let colors = response.data
+                
+                return colors
             }
             
             .eraseToAnyPublisher()

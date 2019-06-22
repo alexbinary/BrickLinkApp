@@ -15,10 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window!.rootViewController = UIHostingController(rootView: MainView()
             .environmentObject(appController)
             .environmentObject(appController.ordersStore)
+            .environmentObject(appController.colorsStore)
         )
         window!.makeKeyAndVisible()
         window?.tintColor = .systemYellow
         
         appController.loadOrders()
+        appController.loadColors()
     }
 }

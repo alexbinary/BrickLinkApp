@@ -6,6 +6,7 @@ import SwiftUI
 struct CreateInventoryView : View {
     
     @EnvironmentObject var appController: AppController
+    @EnvironmentObject var colorsStore: ColorsStore
     
     enum ViewState {
         case initial
@@ -20,16 +21,14 @@ struct CreateInventoryView : View {
     
     @State var itemNo: String = "93274"
     @State var itemUnitPrice: String = "0.1"
+    @State var itemColor: Int = 1
     @State var itemQuantity: String = "42"
-    @State var itemColorRawValue: Int = ColorId.blue.rawValue
     @State var itemDescription: String = ""
     @State var isStockroom = true
     @State var saleRate: String = "50"
     
     @State var autoPrice: Bool = true
     @State var priceGuidePrice: Float = 0
-    
-    var itemColor: ColorId { ColorId(rawValue: itemColorRawValue)! }
     
     var currentInventory: Inventory {
         
@@ -50,56 +49,32 @@ struct CreateInventoryView : View {
         )
     }
     
-    var colors: [ColorId: String] = [
-
-        .white: "White",
-        .yellow: "Yellow",
-        .red:  "Red",
-        .blue: "Blue",
-        .lightGray: "Light Gray",
-        .black: "Black",
-        .darkBluishGray: "Dark Bluish Gray",
-        .lightBluishGray: "Light Bluish Gray",
-    ]
-    var colorList: [Int] = [
-        
-        ColorId.white,
-        ColorId.yellow,
-        ColorId.red,
-        ColorId.blue,
-        ColorId.lightGray,
-        ColorId.black,
-        ColorId.darkBluishGray,
-        ColorId.lightBluishGray,
-        
-    ] .map { $0.rawValue }
-    
     var body: some View {
       
         NavigationView {
         
             List {
-        
+
                 Section {
-                
+
                     HStack {
                         Text("Item number")
                         Spacer()
                         TextField($itemNo, placeholder: Text("93274"))
                     }
                     
-                    Picker(selection: $itemColorRawValue, label: Text("Color")) {
-                        ForEach(colorList) { i in
-                            Text(self.colors[ColorId(rawValue: i)!]!).tag(i)
+                    Picker(selection: $itemColor, label: Text("Color")) {
+                        ForEach(self.colorsStore.colors) { color in
+                            Text(verbatim: color.colorName).tag(color.colorId)
                         }
                     }
-                
+
                     HStack {
                         Text("Quantity")
                         Spacer()
                         TextField($itemQuantity, placeholder: Text("42"))
                     }
-                    
+
                     HStack {
                         Text("Unit price")
                         Spacer()
@@ -107,7 +82,7 @@ struct CreateInventoryView : View {
                             Text("auto")
                         }
                     }
-                    
+
                     if !autoPrice {
                         HStack {
                             Button(action: {
@@ -124,24 +99,24 @@ struct CreateInventoryView : View {
                             Text("€")
                         }
                     }
-                    
+
                     HStack {
                         Text("Sale")
                         Spacer()
                         TextField($saleRate, placeholder: Text("50"))
                         Text("%")
                     }
-                    
+
                     Toggle(isOn: $isStockroom) {
                         Text("Stockroom")
                     }
-                    
+
                     TextField($itemDescription, placeholder: Text("Description"))
                 }
                     .multilineTextAlignment(.trailing)
-                
+
                 Section {
-                
+
                     Button(action: {
                         self.viewState = .running
                         _ = self.appController.create(self.currentInventory, self.autoPrice)
@@ -156,12 +131,12 @@ struct CreateInventoryView : View {
                     }
                     if isDone {
                         Text("Inventory created!")
-                        
+
                     }
                 }
-                
+
                 Section {
-                    
+
                     Text("")
                     Text("")
                     Text("")
@@ -187,6 +162,7 @@ struct CreateInventoryView_Previews : PreviewProvider {
 
         CreateInventoryView()
             .environmentObject(appController)
+            .environmentObject(dummyColorsStore)
             .environment(\.colorScheme, .dark)
     }
 }

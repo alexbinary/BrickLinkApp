@@ -6,7 +6,7 @@ import Foundation
 struct Inventory: Codable {
     
     let item: InventoryItem
-    let colorId: ColorId
+    let colorId: Int
     let quantity: Int
     var unitPrice: FixedPointNumber
     let newOrUsed: ItemCondition
@@ -30,42 +30,6 @@ enum ItemType: String, Codable {
 }
 
 
-enum ColorId: Int, Codable {
-    
-    case white = 1
-    case yellow = 3
-    case red = 5
-    case blue = 7
-    case lightGray = 9
-    case black = 11
-    case darkBluishGray = 85
-    case lightBluishGray = 86
-    
-    var name: String {
-        
-        switch self {
-            
-        case .white:
-            return "White"
-        case .yellow:
-            return "Yellow"
-        case .red:
-            return "Red"
-        case .blue:
-            return "Blue"
-        case .lightGray:
-            return "Light Gray"
-        case .black:
-            return "Black"
-        case .darkBluishGray:
-            return "Dark Bluish Gray"
-        case .lightBluishGray:
-            return "Light Bluish Gray"
-        }
-    }
-}
-
-
 enum ItemCondition: String, Codable {
     
     case new = "N"
@@ -84,7 +48,6 @@ struct FixedPointNumber: Codable, ExpressibleByFloatLiteral {
     init(_ float: Float) {
         self.floatValue = float
     }
-    
     
     var floatValue: Float
     

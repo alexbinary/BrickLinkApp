@@ -17,7 +17,10 @@
 		290F75FD22AD66CF007B74BD /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 290F75FC22AD66CF007B74BD /* CryptoSwift */; };
 		2915707722B57A5400557C9E /* OrdersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915707622B57A5400557C9E /* OrdersStore.swift */; };
 		2915707B22B583FC00557C9E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915707A22B583FC00557C9E /* MainView.swift */; };
+		292C91C622BB4DBF00CEBAF9 /* BrickLinkColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292C91C522BB4DBF00CEBAF9 /* BrickLinkColor.swift */; };
+		292C91C822BC9E0600CEBAF9 /* ColorsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292C91C722BC9E0600CEBAF9 /* ColorsStore.swift */; };
 		2963B97A22B3F78A00E03F35 /* BrickLinkCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */; };
+		299EA70922BE33AE00DD1F9C /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 299EA70822BE33AE00DD1F9C /* colors.json */; };
 		29A7C04322B761C90079EAA8 /* PriceGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7C04222B761C90079EAA8 /* PriceGuide.swift */; };
 		29BDA2FD22B4324E004B62A0 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BDA2FC22B4324E004B62A0 /* APIResponse.swift */; };
 		29C2F0F122B52C01008FB0F8 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C2F0F022B52C01008FB0F8 /* Order.swift */; };
@@ -44,8 +47,11 @@
 		290F75FE22AD66E4007B74BD /* BrickLinkApp2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BrickLinkApp2.entitlements; sourceTree = "<group>"; };
 		2915707622B57A5400557C9E /* OrdersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStore.swift; sourceTree = "<group>"; };
 		2915707A22B583FC00557C9E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		292C91C522BB4DBF00CEBAF9 /* BrickLinkColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkColor.swift; sourceTree = "<group>"; };
+		292C91C722BC9E0600CEBAF9 /* ColorsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsStore.swift; sourceTree = "<group>"; };
 		2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BrickLinkCredentials.plist; sourceTree = "<group>"; };
 		2963B97D22B3FB2700E03F35 /* BricklinkModels.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BricklinkModels.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		299EA70822BE33AE00DD1F9C /* colors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
 		29A7C04222B761C90079EAA8 /* PriceGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceGuide.swift; sourceTree = "<group>"; };
 		29BDA2FC22B4324E004B62A0 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		29C2F0F022B52C01008FB0F8 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				290F75F022AD63E7007B74BD /* Preview Assets.xcassets */,
+				299EA70822BE33AE00DD1F9C /* colors.json */,
 				29EAF43A22B408DA00CABFF6 /* orders.json */,
 				29EAF43F22B42CD200CABFF6 /* data.swift */,
 			);
@@ -142,6 +149,7 @@
 				29C2F0F022B52C01008FB0F8 /* Order.swift */,
 				29C2F0F222B52C2D008FB0F8 /* Inventory.swift */,
 				29A7C04222B761C90079EAA8 /* PriceGuide.swift */,
+				292C91C522BB4DBF00CEBAF9 /* BrickLinkColor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 			children = (
 				29C2F0F522B5398D008FB0F8 /* AppController.swift */,
 				2915707622B57A5400557C9E /* OrdersStore.swift */,
+				292C91C722BC9E0600CEBAF9 /* ColorsStore.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -233,6 +242,7 @@
 				290F75F422AD63E7007B74BD /* LaunchScreen.storyboard in Resources */,
 				290F75F122AD63E7007B74BD /* Preview Assets.xcassets in Resources */,
 				290F75EE22AD63E7007B74BD /* Assets.xcassets in Resources */,
+				299EA70922BE33AE00DD1F9C /* colors.json in Resources */,
 				2963B97A22B3F78A00E03F35 /* BrickLinkCredentials.plist in Resources */,
 				29EAF43B22B408DA00CABFF6 /* orders.json in Resources */,
 			);
@@ -249,8 +259,10 @@
 				2915707722B57A5400557C9E /* OrdersStore.swift in Sources */,
 				29BDA2FD22B4324E004B62A0 /* APIResponse.swift in Sources */,
 				29C2F0F622B5398D008FB0F8 /* AppController.swift in Sources */,
+				292C91C622BB4DBF00CEBAF9 /* BrickLinkColor.swift in Sources */,
 				29F405CF22AD9B6B00CCA0E1 /* BrickLinkRequestCredentials.swift in Sources */,
 				290F75E822AD63E3007B74BD /* AppDelegate.swift in Sources */,
+				292C91C822BC9E0600CEBAF9 /* ColorsStore.swift in Sources */,
 				29D5513122AD756E0069BE9C /* BrickLinkAPIClient.swift in Sources */,
 				29C2F0F122B52C01008FB0F8 /* Order.swift in Sources */,
 				29C2F0F822B53B88008FB0F8 /* CreateInventoryView.swift in Sources */,

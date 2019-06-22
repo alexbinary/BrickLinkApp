@@ -5,6 +5,7 @@ import Foundation
 
 // MARK: - Helper functions
 
+
 func makeDummyOrdersStore() -> OrdersStore {
 
     let url = Bundle.main.url(forResource: "orders", withExtension: "json")!
@@ -17,7 +18,20 @@ func makeDummyOrdersStore() -> OrdersStore {
 }
 
 
+func makeDummyColorsStore() -> ColorsStore {
+    
+    let url = Bundle.main.url(forResource: "colors", withExtension: "json")!
+    let data = try! Data(contentsOf: url)
+    let response: APIResponse<[BrickLinkColor]> = data.decode()
+    
+    let store = ColorsStore()
+    store.colors = response.data
+    return store
+}
+
+
 
 // MARK: - Objects
 
 let dummyOrdersStore = makeDummyOrdersStore()
+let dummyColorsStore = makeDummyColorsStore()

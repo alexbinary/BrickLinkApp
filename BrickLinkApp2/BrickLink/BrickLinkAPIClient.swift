@@ -37,6 +37,27 @@ struct BrickLinkAPIClient {
     }
     
     
+    func getMyInventories() -> AnyPublisher<[Inventory], Never> {
+        
+        let url = URL(string: "https://api.bricklink.com/api/store/v1/inventories")!
+        
+        var request = URLRequest(url: url)
+        
+        request.authenticate(with: credentials)
+        
+        return getResponse(for: request)
+            
+            .map { (response: APIResponse<[Inventory]>) in
+                
+                let inventories = response.data
+                
+                return inventories
+            }
+            
+            .eraseToAnyPublisher()
+    }
+    
+    
     func create(_ inventory: Inventory) -> AnyPublisher<Inventory, Never> {
         
         let url = URL(string: "https://api.bricklink.com/api/store/v1/inventories")!

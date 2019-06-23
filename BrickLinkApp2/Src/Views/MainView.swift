@@ -12,8 +12,11 @@ struct MainView : View {
             OrdersListView()
                 .tabItemLabel(Text("Orders")).tag(1)
             
+            InventoriesListView()
+                .tabItemLabel(Text("Inventory")).tag(2)
+            
             CreateInventoryView()
-                .tabItemLabel(Text("Create Inventory")).tag(2)
+                .tabItemLabel(Text("Create Inventory")).tag(3)
         }
     }
 }
@@ -29,6 +32,7 @@ struct MainView_Previews : PreviewProvider {
         MainView()
             .environmentObject(dummyOrdersStore)
             .environmentObject(dummyColorsStore)
+            .environmentObject(dummyInventoriesStore)
             .environmentObject(appController)
             .environment(\.colorScheme, .dark)
     }

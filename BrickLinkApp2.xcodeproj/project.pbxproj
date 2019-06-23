@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		290881A822B365C20084BA1B /* BrickLinkAPIClient+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290881A722B365C20084BA1B /* BrickLinkAPIClient+Auth.swift */; };
+		290D8D9322BF7CA400504628 /* InventoriesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290D8D9222BF7CA400504628 /* InventoriesStore.swift */; };
+		290D8D9522BF7E0100504628 /* InventoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290D8D9422BF7E0100504628 /* InventoriesListView.swift */; };
 		290F75E822AD63E3007B74BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F75E722AD63E3007B74BD /* AppDelegate.swift */; };
 		290F75EA22AD63E3007B74BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F75E922AD63E3007B74BD /* SceneDelegate.swift */; };
 		290F75EC22AD63E3007B74BD /* OrdersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F75EB22AD63E3007B74BD /* OrdersListView.swift */; };
@@ -19,6 +21,7 @@
 		2915707B22B583FC00557C9E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915707A22B583FC00557C9E /* MainView.swift */; };
 		292C91C622BB4DBF00CEBAF9 /* BrickLinkColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292C91C522BB4DBF00CEBAF9 /* BrickLinkColor.swift */; };
 		292C91C822BC9E0600CEBAF9 /* ColorsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292C91C722BC9E0600CEBAF9 /* ColorsStore.swift */; };
+		294EE2E722BF7B1D00E9BAAB /* inventories.json in Resources */ = {isa = PBXBuildFile; fileRef = 294EE2E622BF7B1D00E9BAAB /* inventories.json */; };
 		2963B97A22B3F78A00E03F35 /* BrickLinkCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */; };
 		299EA70922BE33AE00DD1F9C /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 299EA70822BE33AE00DD1F9C /* colors.json */; };
 		29A7C04322B761C90079EAA8 /* PriceGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7C04222B761C90079EAA8 /* PriceGuide.swift */; };
@@ -36,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		290881A722B365C20084BA1B /* BrickLinkAPIClient+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrickLinkAPIClient+Auth.swift"; sourceTree = "<group>"; };
+		290D8D9222BF7CA400504628 /* InventoriesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoriesStore.swift; sourceTree = "<group>"; };
+		290D8D9422BF7E0100504628 /* InventoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoriesListView.swift; sourceTree = "<group>"; };
 		290F75E422AD63E3007B74BD /* BrickLinkApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickLinkApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290F75E722AD63E3007B74BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		290F75E922AD63E3007B74BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		2915707A22B583FC00557C9E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		292C91C522BB4DBF00CEBAF9 /* BrickLinkColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkColor.swift; sourceTree = "<group>"; };
 		292C91C722BC9E0600CEBAF9 /* ColorsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsStore.swift; sourceTree = "<group>"; };
+		294EE2E622BF7B1D00E9BAAB /* inventories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = inventories.json; sourceTree = "<group>"; };
 		2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BrickLinkCredentials.plist; sourceTree = "<group>"; };
 		2963B97D22B3FB2700E03F35 /* BricklinkModels.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BricklinkModels.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		299EA70822BE33AE00DD1F9C /* colors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 				290F75F022AD63E7007B74BD /* Preview Assets.xcassets */,
 				299EA70822BE33AE00DD1F9C /* colors.json */,
 				29EAF43A22B408DA00CABFF6 /* orders.json */,
+				294EE2E622BF7B1D00E9BAAB /* inventories.json */,
 				29EAF43F22B42CD200CABFF6 /* data.swift */,
 			);
 			path = "Preview Content";
@@ -160,6 +167,7 @@
 				29C2F0F522B5398D008FB0F8 /* AppController.swift */,
 				2915707622B57A5400557C9E /* OrdersStore.swift */,
 				292C91C722BC9E0600CEBAF9 /* ColorsStore.swift */,
+				290D8D9222BF7CA400504628 /* InventoriesStore.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +179,7 @@
 				290F75EB22AD63E3007B74BD /* OrdersListView.swift */,
 				29EAF44122B42FA000CABFF6 /* OrderRowView.swift */,
 				29C2F0F722B53B88008FB0F8 /* CreateInventoryView.swift */,
+				290D8D9422BF7E0100504628 /* InventoriesListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,6 +251,7 @@
 				290F75F422AD63E7007B74BD /* LaunchScreen.storyboard in Resources */,
 				290F75F122AD63E7007B74BD /* Preview Assets.xcassets in Resources */,
 				290F75EE22AD63E7007B74BD /* Assets.xcassets in Resources */,
+				294EE2E722BF7B1D00E9BAAB /* inventories.json in Resources */,
 				299EA70922BE33AE00DD1F9C /* colors.json in Resources */,
 				2963B97A22B3F78A00E03F35 /* BrickLinkCredentials.plist in Resources */,
 				29EAF43B22B408DA00CABFF6 /* orders.json in Resources */,
@@ -271,7 +281,9 @@
 				290881A822B365C20084BA1B /* BrickLinkAPIClient+Auth.swift in Sources */,
 				29A7C04322B761C90079EAA8 /* PriceGuide.swift in Sources */,
 				29EAF44022B42CD200CABFF6 /* data.swift in Sources */,
+				290D8D9322BF7CA400504628 /* InventoriesStore.swift in Sources */,
 				290F75EC22AD63E3007B74BD /* OrdersListView.swift in Sources */,
+				290D8D9522BF7E0100504628 /* InventoriesListView.swift in Sources */,
 				29EAF44222B42FA000CABFF6 /* OrderRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

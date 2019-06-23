@@ -30,8 +30,21 @@ func makeDummyColorsStore() -> ColorsStore {
 }
 
 
+func makeDummyInventoriesStore() -> InventoriesStore {
+    
+    let url = Bundle.main.url(forResource: "inventories", withExtension: "json")!
+    let data = try! Data(contentsOf: url)
+    let response: APIResponse<[Inventory]> = data.decode()
+    
+    let store = InventoriesStore()
+    store.inventories = response.data
+    return store
+}
+
+
 
 // MARK: - Objects
 
 let dummyOrdersStore = makeDummyOrdersStore()
 let dummyColorsStore = makeDummyColorsStore()
+let dummyInventoriesStore = makeDummyInventoriesStore()

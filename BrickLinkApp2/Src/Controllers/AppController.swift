@@ -15,6 +15,7 @@ class AppController: BindableObject {
     
     let ordersStore: OrdersStore
     let colorsStore: ColorsStore
+    let inventoriesStore: InventoriesStore
     
     
     init() {
@@ -23,6 +24,7 @@ class AppController: BindableObject {
         self.brickLinkAPIClient = BrickLinkAPIClient(with: credentials)
         self.ordersStore = OrdersStore()
         self.colorsStore = ColorsStore()
+        self.inventoriesStore = InventoriesStore()
     }
 
     
@@ -53,6 +55,24 @@ class AppController: BindableObject {
                 .sink { colors in
                     
                     self.colorsStore.colors = colors
+                    
+                    promise(.success(()))
+                }
+        }
+        
+        .eraseToAnyPublisher()
+    }
+    
+    
+    @discardableResult func loadInventories() -> AnyPublisher<Void, Never> {
+        
+        return Publishers.Future<Void, Never> { promise in
+            
+            _ = self.brickLinkAPIClient.getMyInventories()
+                
+                .sink { inventories in
+                    
+                    self.inventoriesStore.inventories = inventories
                     
                     promise(.success(()))
                 }

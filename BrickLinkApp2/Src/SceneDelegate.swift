@@ -16,11 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environmentObject(appController)
             .environmentObject(appController.ordersStore)
             .environmentObject(appController.colorsStore)
+            .environmentObject(appController.inventoriesStore)
         )
         window!.makeKeyAndVisible()
         window?.tintColor = .systemYellow
         
         appController.loadOrders()
         appController.loadColors()
+        appController.loadInventories()
     }
 }

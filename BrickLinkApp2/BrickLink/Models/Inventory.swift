@@ -1,10 +1,14 @@
 
 import Foundation
+import SwiftUI
 
 
 
-struct Inventory: Codable {
+struct Inventory: Codable, Identifiable {
     
+    var id: Int { inventoryId }
+    
+    let inventoryId: Int
     let item: InventoryItem
     let colorId: Int
     let quantity: Int

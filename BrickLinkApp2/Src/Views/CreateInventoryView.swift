@@ -34,6 +34,7 @@ struct CreateInventoryView : View {
             
             Inventory(
                 
+                inventoryId: 0,
                 item: InventoryItem(
                     type: .part,
                     no: itemNo

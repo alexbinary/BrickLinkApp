@@ -19,13 +19,17 @@ struct CreateInventoryView : View {
     var actionIsRunning: Bool { actionState == .running }
     var actionIsDone: Bool { actionState == .done }
     
-    @State var itemNoFormValue: String = "93274"
-    @State var selectedUnitPrice: String = "0.1"
-    @State var selectedColorId: Int = 1
-    @State var selectedQuantity: String = "42"
-    @State var selectedDescription: String = ""
-    @State var selectedIsStockroom = true
-    @State var selectedSaleRate: String = "50"
+    struct FormModel {
+        var itemNo: String = "93274"
+        var unitPrice: String = "0.1"
+        var colorId: Int = 1
+        var quantity: String = "42"
+        var description: String = ""
+        var isStockroom = true
+        var saleRate: String = "50"
+    }
+    
+    @State var formModel = FormModel()
     
     @State var autoPriceEnabled: Bool = true
     @State var loadedPriceGuidePrice: Float = 0
@@ -36,16 +40,16 @@ struct CreateInventoryView : View {
             
             item: InventoryItem(
                 type: .part,
-                no: itemNoFormValue
+                no: formModel.itemNo
             ),
-            colorId: selectedColorId,
-            quantity: Int(selectedQuantity)!,
-            unitPrice: FixedPointNumber(autoPriceEnabled ? 0 : Float(selectedUnitPrice)!),
+            colorId: formModel.colorId,
+            quantity: Int(formModel.quantity)!,
+            unitPrice: FixedPointNumber(autoPriceEnabled ? 0 : Float(formModel.unitPrice)!),
             newOrUsed: .used,
             isRetain: true,
-            isStockRoom: selectedIsStockroom,
-            description: selectedDescription,
-            saleRate: Int(selectedSaleRate)!
+            isStockRoom: formModel.isStockroom,
+            description: formModel.description,
+            saleRate: Int(formModel.saleRate)!
         )
     }
     
@@ -60,10 +64,10 @@ struct CreateInventoryView : View {
                     HStack {
                         Text("Item number")
                         Spacer()
-                        TextField($itemNoFormValue, placeholder: Text("93274"))
+                        TextField($formModel.itemNo, placeholder: Text("93274"))
                     }
                     
-                    Picker(selection: $selectedColorId, label: Text("Color")) {
+                    Picker(selection: $formModel.colorId, label: Text("Color")) {
                         ForEach(self.colorsStore.colors) { color in
                             Text(verbatim: color.colorName).tag(color.colorId)
                         }
@@ -72,7 +76,7 @@ struct CreateInventoryView : View {
                     HStack {
                         Text("Quantity")
                         Spacer()
-                        TextField($selectedQuantity, placeholder: Text("42"))
+                        TextField($formModel.quantity, placeholder: Text("42"))
                     }
 
                     HStack {
@@ -86,7 +90,7 @@ struct CreateInventoryView : View {
                     if !autoPriceEnabled {
                         HStack {
                             Button(action: {
-                                _ = self.appController.getPriceGuide(itemNo: self.itemNoFormValue, colorId: self.selectedColorId)
+                                _ = self.appController.getPriceGuide(itemNo: self.formModel.itemNo, colorId: self.formModel.colorId)
                                     .sink { priceGuide in
                                         self.loadedPriceGuidePrice = priceGuide.avgPrice.floatValue
                                     }
@@ -95,7 +99,7 @@ struct CreateInventoryView : View {
                             }
                             Text("\(loadedPriceGuidePrice)")
                             Spacer()
-                            TextField($selectedUnitPrice, placeholder: Text("0.24"))
+                            TextField($formModel.unitPrice, placeholder: Text("0.24"))
                             Text("€")
                         }
                     }
@@ -103,15 +107,15 @@ struct CreateInventoryView : View {
                     HStack {
                         Text("Sale")
                         Spacer()
-                        TextField($selectedSaleRate, placeholder: Text("50"))
+                        TextField($formModel.saleRate, placeholder: Text("50"))
                         Text("%")
                     }
 
-                    Toggle(isOn: $selectedIsStockroom) {
+                    Toggle(isOn: $formModel.isStockroom) {
                         Text("Stockroom")
                     }
 
-                    TextField($selectedDescription, placeholder: Text("Description"))
+                    TextField($formModel.description, placeholder: Text("Description"))
                 }
                     .multilineTextAlignment(.trailing)
 

@@ -58,7 +58,7 @@ struct CreateInventoryView : View {
       
         NavigationView {
         
-            List {
+            Form {
 
                 Section {
 

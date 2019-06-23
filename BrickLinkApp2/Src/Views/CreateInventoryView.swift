@@ -20,38 +20,39 @@ struct CreateInventoryView : View {
     var actionIsDone: Bool { actionState == .done }
     
     struct FormModel {
+        
         var itemNo: String = "93274"
+        var unitPriceAuto: Bool = true
         var unitPrice: String = "0.1"
         var colorId: Int = 1
         var quantity: String = "42"
         var description: String = ""
         var isStockroom = true
         var saleRate: String = "50"
+        
+        var inventory: Inventory {
+            
+            Inventory(
+                
+                item: InventoryItem(
+                    type: .part,
+                    no: itemNo
+                ),
+                colorId: colorId,
+                quantity: Int(quantity)!,
+                unitPrice: FixedPointNumber(unitPriceAuto ? 0 : Float(unitPrice)!),
+                newOrUsed: .used,
+                isRetain: true,
+                isStockRoom: isStockroom,
+                description: description,
+                saleRate: Int(saleRate)!
+            )
+        }
     }
     
     @State var formModel = FormModel()
     
-    @State var autoPriceEnabled: Bool = true
     @State var loadedPriceGuidePrice: Float = 0
-    
-    var inventoryFromFormValues: Inventory {
-        
-        Inventory(
-            
-            item: InventoryItem(
-                type: .part,
-                no: formModel.itemNo
-            ),
-            colorId: formModel.colorId,
-            quantity: Int(formModel.quantity)!,
-            unitPrice: FixedPointNumber(autoPriceEnabled ? 0 : Float(formModel.unitPrice)!),
-            newOrUsed: .used,
-            isRetain: true,
-            isStockRoom: formModel.isStockroom,
-            description: formModel.description,
-            saleRate: Int(formModel.saleRate)!
-        )
-    }
     
     var body: some View {
       
@@ -82,12 +83,12 @@ struct CreateInventoryView : View {
                     HStack {
                         Text("Unit price")
                         Spacer()
-                        Toggle(isOn: $autoPriceEnabled) {
+                        Toggle(isOn: $formModel.unitPriceAuto) {
                             Text("auto")
                         }
                     }
 
-                    if !autoPriceEnabled {
+                    if !formModel.unitPriceAuto {
                         HStack {
                             Button(action: {
                                 _ = self.appController.getPriceGuide(itemNo: self.formModel.itemNo, colorId: self.formModel.colorId)
@@ -123,7 +124,7 @@ struct CreateInventoryView : View {
 
                     Button(action: {
                         self.actionState = .running
-                        _ = self.appController.create(self.inventoryFromFormValues, self.autoPriceEnabled)
+                        _ = self.appController.create(self.formModel.inventory, self.formModel.unitPriceAuto)
                             .sink {
                                 self.actionState = .done
                             }

@@ -39,7 +39,8 @@ struct CreateInventoryView : View {
                 inventoryId: 0,
                 item: InventoryItem(
                     type: .part,
-                    no: itemNo
+                    no: itemNo,
+                    name: ""
                 ),
                 colorId: colorId,
                 quantity: Int(quantity)!,
@@ -158,9 +159,6 @@ struct CreateInventoryView : View {
                         Text("Cancel")
                     }
                 )
-                .onAppear(perform: {
-                    print(self.isPresented)
-                })
         }
     }
 }

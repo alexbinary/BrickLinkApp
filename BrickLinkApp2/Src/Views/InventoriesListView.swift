@@ -15,7 +15,7 @@ struct InventoriesListView : View {
         
             List(inventoriesStore.inventories) { inventory in
                 
-                Text(verbatim: inventory.item.no)
+                InventoryRowView(inventory: inventory)
             }
                 .navigationBarTitle(Text("Inventory"))
                 .navigationBarItems(

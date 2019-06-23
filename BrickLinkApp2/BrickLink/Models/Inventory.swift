@@ -25,6 +25,7 @@ struct InventoryItem: Codable {
     
     let type: ItemType
     let no: String
+    let name: String
 }
 
 

@@ -8,44 +8,44 @@ struct CreateInventoryView : View {
     @EnvironmentObject var appController: AppController
     @EnvironmentObject var colorsStore: ColorsStore
     
-    enum ViewState {
+    enum ActionState {
         case initial
         case running
         case done
     }
     
-    @State var viewState: ViewState = .initial
+    @State var actionState: ActionState = .initial
     
-    var isRunning: Bool { viewState == .running }
-    var isDone: Bool { viewState == .done }
+    var actionIsRunning: Bool { actionState == .running }
+    var actionIsDone: Bool { actionState == .done }
     
-    @State var itemNo: String = "93274"
-    @State var itemUnitPrice: String = "0.1"
-    @State var itemColor: Int = 1
-    @State var itemQuantity: String = "42"
-    @State var itemDescription: String = ""
-    @State var isStockroom = true
-    @State var saleRate: String = "50"
+    @State var itemNoFormValue: String = "93274"
+    @State var selectedUnitPrice: String = "0.1"
+    @State var selectedColorId: Int = 1
+    @State var selectedQuantity: String = "42"
+    @State var selectedDescription: String = ""
+    @State var selectedIsStockroom = true
+    @State var selectedSaleRate: String = "50"
     
-    @State var autoPrice: Bool = true
-    @State var priceGuidePrice: Float = 0
+    @State var autoPriceEnabled: Bool = true
+    @State var loadedPriceGuidePrice: Float = 0
     
-    var currentInventory: Inventory {
+    var inventoryFromFormValues: Inventory {
         
         Inventory(
             
             item: InventoryItem(
                 type: .part,
-                no: itemNo
+                no: itemNoFormValue
             ),
-            colorId: itemColor,
-            quantity: Int(itemQuantity)!,
-            unitPrice: FixedPointNumber(autoPrice ? 0 : Float(itemUnitPrice)!),
+            colorId: selectedColorId,
+            quantity: Int(selectedQuantity)!,
+            unitPrice: FixedPointNumber(autoPriceEnabled ? 0 : Float(selectedUnitPrice)!),
             newOrUsed: .used,
             isRetain: true,
-            isStockRoom: isStockroom,
-            description: itemDescription,
-            saleRate: Int(saleRate)!
+            isStockRoom: selectedIsStockroom,
+            description: selectedDescription,
+            saleRate: Int(selectedSaleRate)!
         )
     }
     
@@ -60,10 +60,10 @@ struct CreateInventoryView : View {
                     HStack {
                         Text("Item number")
                         Spacer()
-                        TextField($itemNo, placeholder: Text("93274"))
+                        TextField($itemNoFormValue, placeholder: Text("93274"))
                     }
                     
-                    Picker(selection: $itemColor, label: Text("Color")) {
+                    Picker(selection: $selectedColorId, label: Text("Color")) {
                         ForEach(self.colorsStore.colors) { color in
                             Text(verbatim: color.colorName).tag(color.colorId)
                         }
@@ -72,30 +72,30 @@ struct CreateInventoryView : View {
                     HStack {
                         Text("Quantity")
                         Spacer()
-                        TextField($itemQuantity, placeholder: Text("42"))
+                        TextField($selectedQuantity, placeholder: Text("42"))
                     }
 
                     HStack {
                         Text("Unit price")
                         Spacer()
-                        Toggle(isOn: $autoPrice) {
+                        Toggle(isOn: $autoPriceEnabled) {
                             Text("auto")
                         }
                     }
 
-                    if !autoPrice {
+                    if !autoPriceEnabled {
                         HStack {
                             Button(action: {
-                                _ = self.appController.getPriceGuide(itemNo: self.itemNo, colorId: self.itemColor)
+                                _ = self.appController.getPriceGuide(itemNo: self.itemNoFormValue, colorId: self.selectedColorId)
                                     .sink { priceGuide in
-                                        self.priceGuidePrice = priceGuide.avgPrice.floatValue
+                                        self.loadedPriceGuidePrice = priceGuide.avgPrice.floatValue
                                     }
                             }) {
                                 Text("Price guide")
                             }
-                            Text("\(priceGuidePrice)")
+                            Text("\(loadedPriceGuidePrice)")
                             Spacer()
-                            TextField($itemUnitPrice, placeholder: Text("0.24"))
+                            TextField($selectedUnitPrice, placeholder: Text("0.24"))
                             Text("€")
                         }
                     }
@@ -103,33 +103,33 @@ struct CreateInventoryView : View {
                     HStack {
                         Text("Sale")
                         Spacer()
-                        TextField($saleRate, placeholder: Text("50"))
+                        TextField($selectedSaleRate, placeholder: Text("50"))
                         Text("%")
                     }
 
-                    Toggle(isOn: $isStockroom) {
+                    Toggle(isOn: $selectedIsStockroom) {
                         Text("Stockroom")
                     }
 
-                    TextField($itemDescription, placeholder: Text("Description"))
+                    TextField($selectedDescription, placeholder: Text("Description"))
                 }
                     .multilineTextAlignment(.trailing)
 
                 Section {
 
                     Button(action: {
-                        self.viewState = .running
-                        _ = self.appController.create(self.currentInventory, self.autoPrice)
+                        self.actionState = .running
+                        _ = self.appController.create(self.inventoryFromFormValues, self.autoPriceEnabled)
                             .sink {
-                                self.viewState = .done
+                                self.actionState = .done
                             }
                     }) {
                         Text("Create Inventory")
                     }
-                    if isRunning {
+                    if actionIsRunning {
                         Text("Loading")
                     }
-                    if isDone {
+                    if actionIsDone {
                         Text("Inventory created!")
 
                     }

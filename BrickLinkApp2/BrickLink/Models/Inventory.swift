@@ -19,6 +19,14 @@ struct Inventory: Codable, Identifiable {
     let isStockRoom: Bool
     let description: String
     let saleRate: Int
+    
+    func matches(query: String) -> Bool {
+        
+        return
+            item.name.lowercased().contains(query.lowercased())
+            ||
+            item.no.lowercased().contains(query.lowercased())
+    }
 }
 
 

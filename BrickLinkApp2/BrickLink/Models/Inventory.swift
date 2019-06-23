@@ -11,6 +11,7 @@ struct Inventory: Codable, Identifiable {
     let inventoryId: Int
     let item: InventoryItem
     let colorId: Int
+    let colorName: String
     let quantity: Int
     var unitPrice: FixedPointNumber
     let newOrUsed: ItemCondition

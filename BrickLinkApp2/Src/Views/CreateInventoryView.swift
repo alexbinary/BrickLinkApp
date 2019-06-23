@@ -43,6 +43,7 @@ struct CreateInventoryView : View {
                     name: ""
                 ),
                 colorId: colorId,
+                colorName: "",
                 quantity: Int(quantity)!,
                 unitPrice: FixedPointNumber(unitPriceAuto ? 0 : Float(unitPrice)!),
                 newOrUsed: .used,

@@ -16,6 +16,7 @@ class InventoriesStore: BindableObject {
             DispatchQueue.main.async {
                 self.didChange.send(())
             }
+            updateFilteredInventories()
         }
     }
     
@@ -34,7 +35,11 @@ class InventoriesStore: BindableObject {
     
     
     func updateFilteredInventories() {
-        filteredInventories = inventories.filter { $0.matches(query: _query) }
+        if _query == "" {
+            filteredInventories = inventories
+        } else {
+            filteredInventories = inventories.filter { $0.matches(query: _query) }
+        }
     }
     
     

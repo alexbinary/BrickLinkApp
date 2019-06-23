@@ -24,7 +24,7 @@ struct InventoriesListView : View {
                             .environmentObject(appController)
                             .environmentObject(colorsStore)
                 ) {
-                    Image(systemName: "plus")
+                    Text("Add")
                 })
         }
     }
@@ -40,6 +40,8 @@ struct InventoriesListView_Previews : PreviewProvider {
 
         InventoriesListView()
             .environmentObject(dummyInventoriesStore)
+            .environmentObject(dummyColorsStore)
+            .environmentObject(appController)
             .environment(\.colorScheme, .dark)
     }
 }

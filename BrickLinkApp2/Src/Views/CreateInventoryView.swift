@@ -8,6 +8,8 @@ struct CreateInventoryView : View {
     @EnvironmentObject var appController: AppController
     @EnvironmentObject var colorsStore: ColorsStore
     
+    @Environment(\.isPresented) private var isPresented
+    
     enum ActionState {
         case initial
         case running
@@ -149,6 +151,16 @@ struct CreateInventoryView : View {
             }
                 .listStyle(.grouped)
                 .navigationBarTitle(Text("Create Inventory"))
+                .navigationBarItems(
+                    trailing: Button(action: {
+                        self.isPresented?.value = false
+                    }) {
+                        Text("Cancel")
+                    }
+                )
+                .onAppear(perform: {
+                    print(self.isPresented)
+                })
         }
     }
 }

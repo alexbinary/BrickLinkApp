@@ -48,6 +48,15 @@ enum ItemCondition: String, Codable {
     
     case new = "N"
     case used = "U"
+    
+    var description: String {
+        switch self {
+        case .new:
+            return "new"
+        case .used:
+            return "used"
+        }
+    }
 }
 
 

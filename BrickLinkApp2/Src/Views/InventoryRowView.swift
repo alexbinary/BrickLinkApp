@@ -10,12 +10,15 @@ struct InventoryRowView : View {
     var body: some View {
 
         VStack(alignment: .leading) {
-            Text(verbatim: inventory.item.name).lineLimit(nil)
+            HStack {
+                Image(systemName: "dot.square.fill")
+                Text(verbatim: inventory.item.name).lineLimit(nil)
+            }
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
                     Text(verbatim: inventory.item.no).font(.footnote)
                     Text(verbatim: inventory.colorName)
-                    Text(verbatim: inventory.newOrUsed.rawValue)
+                    Text(verbatim: inventory.newOrUsed.description)
                 }
                 Spacer()
                 VStack(alignment: .trailing) {

@@ -9,12 +9,6 @@ struct InventoriesListView : View {
     @EnvironmentObject var appController: AppController
     @EnvironmentObject var colorsStore: ColorsStore
     
-    @State private var searchQuery: String = "12" {
-        didSet {
-            print("ok")
-        }
-    }
-    
     var body: some View {
 
         NavigationView {
@@ -24,9 +18,7 @@ struct InventoriesListView : View {
                 TextField(inventoriesStore.query, placeholder: Text("Search inventory"))
                 
                 ForEach(inventoriesStore.filteredInventories) { inventory in
-                    if inventory.matches(query: self.searchQuery) {
-                        InventoryRowView(inventory: inventory)
-                    }
+                    InventoryRowView(inventory: inventory)
                 }
             }
                 .navigationBarTitle(Text("Inventory"))

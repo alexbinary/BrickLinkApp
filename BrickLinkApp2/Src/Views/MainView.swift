@@ -14,9 +14,6 @@ struct MainView : View {
             
             InventoriesListView()
                 .tabItemLabel(Text("Inventory")).tag(2)
-            
-            CreateInventoryView()
-                .tabItemLabel(Text("Create Inventory")).tag(3)
         }
     }
 }

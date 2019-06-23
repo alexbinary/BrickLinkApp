@@ -6,6 +6,8 @@ import SwiftUI
 struct InventoriesListView : View {
 
     @EnvironmentObject var inventoriesStore: InventoriesStore
+    @EnvironmentObject var appController: AppController
+    @EnvironmentObject var colorsStore: ColorsStore
     
     var body: some View {
 
@@ -16,6 +18,14 @@ struct InventoriesListView : View {
                 Text(verbatim: inventory.item.no)
             }
                 .navigationBarTitle(Text("Inventory"))
+                .navigationBarItems(
+                    trailing: PresentationButton(destination:
+                        CreateInventoryView()
+                            .environmentObject(appController)
+                            .environmentObject(colorsStore)
+                ) {
+                    Image(systemName: "plus")
+                })
         }
     }
 }

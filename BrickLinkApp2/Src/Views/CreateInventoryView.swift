@@ -148,7 +148,7 @@ struct CreateInventoryView : View {
                 }
             }
                 .listStyle(.grouped)
-                .navigationBarTitle(Text("My Inventory"))
+                .navigationBarTitle(Text("Create Inventory"))
         }
     }
 }

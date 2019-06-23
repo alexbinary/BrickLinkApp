@@ -141,14 +141,9 @@ struct CreateInventoryView : View {
                 }
 
                 Section {
-
-                    Text("")
-                    Text("")
-                    Text("")
-                    Text("")
-                    Text("")
-                    Text("")
-                    Text("")
+                    ForEach(0..<7) { _ in
+                        Text(verbatim: "")
+                    }
                 }
             }
                 .listStyle(.grouped)

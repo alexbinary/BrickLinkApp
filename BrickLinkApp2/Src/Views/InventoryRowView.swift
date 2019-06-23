@@ -11,7 +11,7 @@ struct InventoryRowView : View {
 
         VStack(alignment: .leading) {
             Text(verbatim: inventory.item.name).lineLimit(nil)
-            HStack(alignment: .bottom) {
+            HStack(alignment: .top) {
                 VStack(alignment: .leading) {
                     Text(verbatim: inventory.item.no).font(.footnote)
                     Text(verbatim: inventory.colorName)
@@ -20,8 +20,26 @@ struct InventoryRowView : View {
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text(verbatim: "Qty: \(inventory.quantity)")
-                    Text(verbatim: "SR: \(inventory.isStockRoom)")
+                        .padding(.leading, 8)
+                        .padding(.trailing, 8)
+                        .padding(.top, 3)
+                        .padding(.bottom, 3)
+                        .background(Color.gray)
+                        .cornerRadius(3)
+                    Text(verbatim: "stockroom: \(inventory.isStockRoom ? "Y" : "N")")
+                        .padding(.leading, 8)
+                        .padding(.trailing, 8)
+                        .padding(.top, 3)
+                        .padding(.bottom, 3)
+                        .background(inventory.isStockRoom ? Color.red : Color.green)
+                        .cornerRadius(3)
                     Text(verbatim: "\(inventory.saleRate)% off")
+                        .padding(.leading, 8)
+                        .padding(.trailing, 8)
+                        .padding(.top, 3)
+                        .padding(.bottom, 3)
+                        .background(Color.orange)
+                        .cornerRadius(3)
                 }
             }
             if inventory.description.count > 0 {

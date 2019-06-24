@@ -18,7 +18,9 @@ struct InventoriesListView : View {
                 TextField(inventoriesStore.query, placeholder: Text("Search inventory"))
                 
                 ForEach(inventoriesStore.filteredInventories) { inventory in
-                    InventoryRowView(inventory: inventory)
+                    NavigationButton(destination: InventoryDetailView(inventory: inventory)) {
+                        InventoryRowView(inventory: inventory)
+                    }
                 }
             }
                 .navigationBarTitle(Text("Inventory"))

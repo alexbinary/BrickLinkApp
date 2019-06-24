@@ -15,6 +15,7 @@ struct MainView : View {
             InventoriesListView()
                 .tabItemLabel(Text("Inventory")).tag(2)
         }
+            .edgesIgnoringSafeArea(.top)
     }
 }
 

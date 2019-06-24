@@ -21,7 +21,9 @@ struct OrdersListView : View {
                 
                 ForEach(ordersStore.ordersMostRecentFirst) { order in
                     if self.orderShouldBeVisible(order) {
-                        OrderRowView(order: order)
+                        NavigationButton(destination: OrderDetailView(order: order)) {
+                            OrderRowView(order: order)
+                        }
                     }
                 }
             }

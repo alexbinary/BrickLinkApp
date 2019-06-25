@@ -50,7 +50,9 @@ struct InventoryDetailView : View {
                     .lineLimit(nil)
                     .font(.body)
             }
+            Spacer()
         }
+            .padding()
             .navigationBarTitle(Text(verbatim: inventory.item.no))
     }
 }

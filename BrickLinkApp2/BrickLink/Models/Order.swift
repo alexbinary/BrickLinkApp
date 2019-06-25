@@ -16,6 +16,7 @@ struct Order: Decodable, Identifiable {
     let status: OrderStatus
     let totalCount: Int
     let uniqueCount: Int
+    let dispCost: Cost
 }
 
 
@@ -40,4 +41,11 @@ enum OrderStatus: String, Decodable, CaseIterable {
     case received = "RECEIVED"
     case paid = "PAID"
     case packed = "PACKED"
+}
+
+
+struct Cost: Decodable{
+    
+    let currencyCode: String
+    let grandTotal: String
 }

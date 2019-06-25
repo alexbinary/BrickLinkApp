@@ -13,19 +13,18 @@ struct OrderDetailView : View {
 
             HStack {
 
-                Text(order.orderId.stringValue).font(.title)
-
-                Spacer()
-
                 VStack(alignment: .leading) {
                     Text("Received").font(.caption)
-                    Text(DateFormatter.localizedString(from: order.dateOrdered, dateStyle: .full, timeStyle: .none))
+                    Text(DateFormatter.localizedString(from: order.dateOrdered, dateStyle: .full, timeStyle: .short))
                 }
             }
 
             HStack(alignment: .top) {
 
-                Text(order.buyerName)
+                VStack(alignment: .leading) {
+                    Text("Buyer").font(.caption)
+                    Text(order.buyerName)
+                }
 
                 Spacer()
 
@@ -35,6 +34,20 @@ struct OrderDetailView : View {
                         .font(.caption)
                 }
             }
+
+            VStack(alignment: .leading, spacing: 9.0) {
+                
+                VStack(alignment: .leading) {
+                    Text("Items").font(.caption)
+                    Text("Total count: \(order.totalCount)")
+                    Text("Unique count: \(order.uniqueCount)")
+                }
+                
+                Text("Grand total: \(order.dispCost.grandTotal) \(order.dispCost.currencyCode)")
+                    .font(.title)
+            }
+            
+            Spacer()
         }
             .navigationBarTitle(Text(verbatim: order.orderId.stringValue))
     }

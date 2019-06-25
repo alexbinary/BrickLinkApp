@@ -49,6 +49,7 @@ struct OrderDetailView : View {
             
             Spacer()
         }
+            .padding()
             .navigationBarTitle(Text(verbatim: order.orderId.stringValue))
     }
 }

@@ -5,6 +5,9 @@ import SwiftUI
 
 struct InventoryDetailView : View {
 
+    @EnvironmentObject var appController: AppController
+    @EnvironmentObject var colorsStore: ColorsStore
+    
     let inventory: Inventory
     
     var body: some View {
@@ -54,6 +57,14 @@ struct InventoryDetailView : View {
         }
             .padding()
             .navigationBarTitle(Text(verbatim: inventory.item.no))
+            .navigationBarItems(trailing: PresentationButton(
+                destination: CreateInventoryView()
+                    .environmentObject(appController)
+                    .environmentObject(colorsStore)
+                ){
+                    Text("Add")
+                }
+            )
     }
 }
 

@@ -125,8 +125,8 @@
 				290F75ED22AD63E7007B74BD /* Assets.xcassets */,
 				290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */,
 				2963B97922B3F78A00E03F35 /* BrickLinkCredentials.plist */,
-				2990562F22B6C9E6000FDACC /* Src */,
 				290881A622B363A20084BA1B /* BrickLink */,
+				2990562F22B6C9E6000FDACC /* Src */,
 				290F75EF22AD63E7007B74BD /* Preview Content */,
 			);
 			path = BrickLinkApp2;

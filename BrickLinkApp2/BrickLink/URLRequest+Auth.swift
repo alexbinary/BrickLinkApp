@@ -151,8 +151,6 @@ extension URLRequest {
 extension String {
     
     
-    /// See https://oauth.net/core/1.0/#rfc.section.5.1
-    ///
     var urlEncoded: String? {
             
         self.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~"))

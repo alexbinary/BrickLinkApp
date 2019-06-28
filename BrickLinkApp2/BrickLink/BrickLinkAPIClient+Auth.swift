@@ -12,7 +12,7 @@ import CryptoSwift
 extension URLRequest {
     
     
-    mutating func authenticate(with credentials: BrickLinkRequestCredentials) {
+    mutating func authenticate(with credentials: BrickLinkCredentials) {
         
         let authorizationHeader = buildAuthorizationHeader(using: credentials)
         
@@ -20,7 +20,7 @@ extension URLRequest {
     }
     
     
-    func buildAuthorizationHeader(using credentials: BrickLinkRequestCredentials) -> String {
+    func buildAuthorizationHeader(using credentials: BrickLinkCredentials) -> String {
         
         let oauthParameters = generateCompleteOAuthParameterSet(using: credentials)
         
@@ -30,7 +30,7 @@ extension URLRequest {
     }
     
     
-    func generateCompleteOAuthParameterSet(using credentials: BrickLinkRequestCredentials) -> [String: String] {
+    func generateCompleteOAuthParameterSet(using credentials: BrickLinkCredentials) -> [String: String] {
         
         let baseParameterSet = [
             
@@ -66,7 +66,7 @@ extension URLRequest {
     }
     
     
-    func generateSignature(using oauthParameters: [String: String], with credentials: BrickLinkRequestCredentials) -> String {
+    func generateSignature(using oauthParameters: [String: String], with credentials: BrickLinkCredentials) -> String {
         
         let signatureBaseString = buildSignatureBaseString(with: oauthParameters)
         
@@ -136,7 +136,7 @@ extension URLRequest {
     }
     
     
-    func buildSigningKey(from credentials: BrickLinkRequestCredentials) -> String {
+    func buildSigningKey(from credentials: BrickLinkCredentials) -> String {
         
         let key = [ credentials.consumerSecret, credentials.tokenSecret ]
             

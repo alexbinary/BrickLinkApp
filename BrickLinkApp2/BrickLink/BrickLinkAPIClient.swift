@@ -7,10 +7,10 @@ import Combine
 struct BrickLinkAPIClient {
     
     
-    let credentials: BrickLinkRequestCredentials
+    let credentials: BrickLinkCredentials
     
     
-    init(with credentials: BrickLinkRequestCredentials) {
+    init(with credentials: BrickLinkCredentials) {
         
         self.credentials = credentials
     }

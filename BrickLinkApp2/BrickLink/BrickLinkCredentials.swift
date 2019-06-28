@@ -3,7 +3,7 @@ import Foundation
 
 
 
-struct BrickLinkRequestCredentials: Decodable {
+struct BrickLinkCredentials: Decodable {
     
     let consumerKey: String
     let consumerSecret: String

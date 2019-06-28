@@ -132,13 +132,13 @@ class AppController: BindableObject {
     }
     
     
-    static func loadBrickLinkCredentials() -> BrickLinkRequestCredentials {
+    static func loadBrickLinkCredentials() -> BrickLinkCredentials {
         
         let url = Bundle.main.url(forResource: "BrickLinkCredentials", withExtension: "plist")!
         
         let data = try! Data(contentsOf: url)
         
-        let credentials = try! PropertyListDecoder().decode(BrickLinkRequestCredentials.self, from: data)
+        let credentials = try! PropertyListDecoder().decode(BrickLinkCredentials.self, from: data)
         
         return credentials
     }

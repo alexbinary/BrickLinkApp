@@ -22,7 +22,7 @@ struct BrickLinkAPIClient {
         
         var request = URLRequest(url: url)
         
-        request.authenticate(with: credentials)
+        request.addAuthentication(using: credentials)
         
         return getResponse(for: request)
         
@@ -43,7 +43,7 @@ struct BrickLinkAPIClient {
         
         var request = URLRequest(url: url)
         
-        request.authenticate(with: credentials)
+        request.addAuthentication(using: credentials)
         
         return getResponse(for: request)
             
@@ -69,7 +69,7 @@ struct BrickLinkAPIClient {
         
         print(String(data: request.httpBody!, encoding: .utf8)!)
         
-        request.authenticate(with: credentials)
+        request.addAuthentication(using: credentials)
         
         return getResponse(for: request)
         
@@ -90,7 +90,7 @@ struct BrickLinkAPIClient {
         
         var request = URLRequest(url: url)
         
-        request.authenticate(with: credentials)
+        request.addAuthentication(using: credentials)
         
         return getResponse(for: request)
             
@@ -111,7 +111,7 @@ struct BrickLinkAPIClient {
         
         var request = URLRequest(url: url)
         
-        request.authenticate(with: credentials)
+        request.addAuthentication(using: credentials)
         
         return getResponse(for: request)
             

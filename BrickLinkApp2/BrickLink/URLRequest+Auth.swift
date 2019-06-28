@@ -12,7 +12,7 @@ import CryptoSwift
 extension URLRequest {
     
     
-    mutating func authenticate(with credentials: BrickLinkCredentials) {
+    mutating func addAuthentication(using credentials: BrickLinkCredentials) {
         
         let authorizationHeader = buildAuthorizationHeader(using: credentials)
         
@@ -55,14 +55,14 @@ extension URLRequest {
         
         let signature = generateSignature(using: baseParameterSet, with: credentials)
         
-        let completeOAuthParameterSet = baseParameterSet.merging([
+        let completeParameterSet = baseParameterSet.merging([
             
             "realm": "",
             "oauth_signature": signature
             
         ], uniquingKeysWith: { (v1, v2) in v1 })
         
-        return completeOAuthParameterSet
+        return completeParameterSet
     }
     
     
@@ -72,9 +72,7 @@ extension URLRequest {
         
         let key = buildSigningKey(from: credentials)
         
-        let digest = try! HMAC(key: key, variant: .sha1).authenticate(signatureBaseString.bytes)
-        
-        let signature = digest.toBase64()!
+        let signature = sign(signatureBaseString, with: key)
         
         return signature
     }
@@ -84,14 +82,12 @@ extension URLRequest {
         
         let requestParameters = collectRequestParameters()
         
-        let parametersForSignature =
-            
-            oauthParameters .merging(requestParameters, uniquingKeysWith: { (v1, v2) in v1 })
+        let parametersForSignature = oauthParameters .merging(requestParameters, uniquingKeysWith: { (v1, v2) in v1 })
         
         let elements = [
             
             httpMethod!.uppercased(),
-            normalize(self.url!),
+            normalize(url!),
             normalize(parametersForSignature),
         ]
         
@@ -105,7 +101,7 @@ extension URLRequest {
         
         var parameters: [String: String] = [:]
         
-        URLComponents(url: self.url!, resolvingAgainstBaseURL: false)!
+        URLComponents(url: url!, resolvingAgainstBaseURL: false)!
             
             .queryItems? .forEach { parameters[$0.name] = $0.value }
         
@@ -128,9 +124,9 @@ extension URLRequest {
     
     func normalize(_ requestParameters: [String: String]) -> String {
         
-        let sorted = requestParameters.sorted { $0.key.compare($1.key) == .orderedAscending }
+        let sorted = requestParameters .sorted { $0.key.compare($1.key) == .orderedAscending }
         
-        let concatenated = sorted.map { $0.key + "=" + $0.value.urlEncoded! } .joined(separator: "&")
+        let concatenated = sorted .map { $0.key + "=" + $0.value.urlEncoded! } .joined(separator: "&")
         
         return concatenated
     }
@@ -143,6 +139,16 @@ extension URLRequest {
             .map { $0.urlEncoded! } .joined(separator: "&")
         
         return key
+    }
+    
+    
+    func sign(_ signatureBaseString: String, with key: String) -> String {
+        
+        let digest = try! HMAC(key: key, variant: .sha1).authenticate(signatureBaseString.bytes)
+        
+        let signature = digest.toBase64()!
+        
+        return signature
     }
 }
 

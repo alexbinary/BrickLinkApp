@@ -1,8 +1,13 @@
 
 import XCTest
+@testable import BrickLinkApp2
 
 
-class BrickLinkApp2Tests: XCTestCase {
+class BrickLinkAuthenticationTests: XCTestCase {
 
     
+    func testBrickLinkAuthentication() {
+    
+        
+    }
 }

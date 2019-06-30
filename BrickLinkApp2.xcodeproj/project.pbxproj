@@ -58,6 +58,7 @@
 		290E4B4322C892A0008C60D8 /* BrickLinkApp2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrickLinkApp2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		290E4B4522C892A0008C60D8 /* BrickLinkApp2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkApp2Tests.swift; sourceTree = "<group>"; };
 		290E4B4722C892A0008C60D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		290E4B4D22C89CB9008C60D8 /* design_notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = design_notes.md; sourceTree = "<group>"; };
 		290F75E422AD63E3007B74BD /* BrickLinkApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickLinkApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290F75E722AD63E3007B74BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		290F75E922AD63E3007B74BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 		290F75DB22AD63E3007B74BD = {
 			isa = PBXGroup;
 			children = (
+				290E4B4D22C89CB9008C60D8 /* design_notes.md */,
 				2963B97D22B3FB2700E03F35 /* BricklinkModels.playground */,
 				290F75E622AD63E3007B74BD /* BrickLinkApp2 */,
 				290E4B4422C892A0008C60D8 /* BrickLinkApp2Tests */,

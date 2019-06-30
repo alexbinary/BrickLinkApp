@@ -20,7 +20,7 @@ extension URLRequest {
     }
     
     
-    private func buildAuthorizationHeader(using credentials: BrickLinkCredentials) -> String {
+    func buildAuthorizationHeader(using credentials: BrickLinkCredentials) -> String {
         
         let oauthParameters = generateCompleteOAuthParameterSet(using: credentials)
         

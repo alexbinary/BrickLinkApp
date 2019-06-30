@@ -154,7 +154,7 @@ extension URLRequest {
 
 
 
-extension String {
+private extension String {
     
     
     var urlEncoded: String? {

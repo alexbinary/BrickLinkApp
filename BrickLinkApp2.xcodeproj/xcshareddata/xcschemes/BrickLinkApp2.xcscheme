@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "290E4B4222C892A0008C60D8"
+               BuildableName = "BrickLinkApp2Tests.xctest"
+               BlueprintName = "BrickLinkApp2Tests"
+               ReferencedContainer = "container:BrickLinkApp2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

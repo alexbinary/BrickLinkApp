@@ -10,6 +10,7 @@
 		290881A822B365C20084BA1B /* URLRequest+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290881A722B365C20084BA1B /* URLRequest+Auth.swift */; };
 		290D8D9322BF7CA400504628 /* InventoriesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290D8D9222BF7CA400504628 /* InventoriesStore.swift */; };
 		290D8D9522BF7E0100504628 /* InventoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290D8D9422BF7E0100504628 /* InventoriesListView.swift */; };
+		290E4B4622C892A0008C60D8 /* BrickLinkApp2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290E4B4522C892A0008C60D8 /* BrickLinkApp2Tests.swift */; };
 		290F75E822AD63E3007B74BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F75E722AD63E3007B74BD /* AppDelegate.swift */; };
 		290F75EA22AD63E3007B74BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F75E922AD63E3007B74BD /* SceneDelegate.swift */; };
 		290F75EC22AD63E3007B74BD /* OrdersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F75EB22AD63E3007B74BD /* OrdersListView.swift */; };
@@ -40,10 +41,23 @@
 		29F405CF22AD9B6B00CCA0E1 /* BrickLinkCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F405CE22AD9B6B00CCA0E1 /* BrickLinkCredentials.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		290E4B4822C892A0008C60D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 290F75DC22AD63E3007B74BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 290F75E322AD63E3007B74BD;
+			remoteInfo = BrickLinkApp2;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		290881A722B365C20084BA1B /* URLRequest+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Auth.swift"; sourceTree = "<group>"; };
 		290D8D9222BF7CA400504628 /* InventoriesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoriesStore.swift; sourceTree = "<group>"; };
 		290D8D9422BF7E0100504628 /* InventoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoriesListView.swift; sourceTree = "<group>"; };
+		290E4B4322C892A0008C60D8 /* BrickLinkApp2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrickLinkApp2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		290E4B4522C892A0008C60D8 /* BrickLinkApp2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickLinkApp2Tests.swift; sourceTree = "<group>"; };
+		290E4B4722C892A0008C60D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		290F75E422AD63E3007B74BD /* BrickLinkApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickLinkApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290F75E722AD63E3007B74BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		290F75E922AD63E3007B74BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +92,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		290E4B4022C892A0008C60D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		290F75E122AD63E3007B74BD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,11 +121,21 @@
 			path = BrickLink;
 			sourceTree = "<group>";
 		};
+		290E4B4422C892A0008C60D8 /* BrickLinkApp2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				290E4B4522C892A0008C60D8 /* BrickLinkApp2Tests.swift */,
+				290E4B4722C892A0008C60D8 /* Info.plist */,
+			);
+			path = BrickLinkApp2Tests;
+			sourceTree = "<group>";
+		};
 		290F75DB22AD63E3007B74BD = {
 			isa = PBXGroup;
 			children = (
 				2963B97D22B3FB2700E03F35 /* BricklinkModels.playground */,
 				290F75E622AD63E3007B74BD /* BrickLinkApp2 */,
+				290E4B4422C892A0008C60D8 /* BrickLinkApp2Tests */,
 				290F75E522AD63E3007B74BD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				290F75E422AD63E3007B74BD /* BrickLinkApp2.app */,
+				290E4B4322C892A0008C60D8 /* BrickLinkApp2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,6 +228,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		290E4B4222C892A0008C60D8 /* BrickLinkApp2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 290E4B4C22C892A0008C60D8 /* Build configuration list for PBXNativeTarget "BrickLinkApp2Tests" */;
+			buildPhases = (
+				290E4B3F22C892A0008C60D8 /* Sources */,
+				290E4B4022C892A0008C60D8 /* Frameworks */,
+				290E4B4122C892A0008C60D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				290E4B4922C892A0008C60D8 /* PBXTargetDependency */,
+			);
+			name = BrickLinkApp2Tests;
+			productName = BrickLinkApp2Tests;
+			productReference = 290E4B4322C892A0008C60D8 /* BrickLinkApp2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		290F75E322AD63E3007B74BD /* BrickLinkApp2 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 290F75F822AD63E7007B74BD /* Build configuration list for PBXNativeTarget "BrickLinkApp2" */;
@@ -226,6 +276,10 @@
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Alexandre Bintz";
 				TargetAttributes = {
+					290E4B4222C892A0008C60D8 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 290F75E322AD63E3007B74BD;
+					};
 					290F75E322AD63E3007B74BD = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -248,11 +302,19 @@
 			projectRoot = "";
 			targets = (
 				290F75E322AD63E3007B74BD /* BrickLinkApp2 */,
+				290E4B4222C892A0008C60D8 /* BrickLinkApp2Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		290E4B4122C892A0008C60D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		290F75E222AD63E3007B74BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,6 +332,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		290E4B3F22C892A0008C60D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				290E4B4622C892A0008C60D8 /* BrickLinkApp2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		290F75E022AD63E3007B74BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -302,6 +372,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		290E4B4922C892A0008C60D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 290F75E322AD63E3007B74BD /* BrickLinkApp2 */;
+			targetProxy = 290E4B4822C892A0008C60D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		290F75F222AD63E7007B74BD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -314,6 +392,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		290E4B4A22C892A0008C60D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2N6DR3R99K;
+				INFOPLIST_FILE = BrickLinkApp2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.bintz.BrickLinkApp2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BrickLinkApp2.app/BrickLinkApp2";
+			};
+			name = Debug;
+		};
+		290E4B4B22C892A0008C60D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2N6DR3R99K;
+				INFOPLIST_FILE = BrickLinkApp2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.bintz.BrickLinkApp2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BrickLinkApp2.app/BrickLinkApp2";
+			};
+			name = Release;
+		};
 		290F75F622AD63E7007B74BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -477,6 +595,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		290E4B4C22C892A0008C60D8 /* Build configuration list for PBXNativeTarget "BrickLinkApp2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				290E4B4A22C892A0008C60D8 /* Debug */,
+				290E4B4B22C892A0008C60D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		290F75DF22AD63E3007B74BD /* Build configuration list for PBXProject "BrickLinkApp2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
